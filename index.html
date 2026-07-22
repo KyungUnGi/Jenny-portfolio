@@ -3,43 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio & Live Project Tracker</title>
-  <!-- Tailwind CSS for styling -->
+  <title>My Creative Hub & Project Tracker</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for fun icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+<body class="bg-amber-50/50 text-slate-800 font-sans min-h-screen">
 
-  <!-- Header / Intro -->
-  <header class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-xl font-bold tracking-tight text-white">Dev<span class="text-indigo-500">Log</span> & Portfolio</h1>
-      <a href="#active-project" class="text-sm bg-indigo-600 hover:bg-indigo-500 text-white font-medium px-4 py-2 rounded-lg transition">
-        Current Work
+  <!-- Top Banner Header -->
+  <header class="bg-white/80 backdrop-blur border-b border-amber-200/60 sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl">🚀</span>
+        <h1 class="text-xl font-extrabold tracking-tight text-slate-900">
+          My Work <span class="text-amber-500">&amp; Progress</span>
+        </h1>
+      </div>
+      <a href="#active-project" class="bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md transition-transform transform active:scale-95">
+        Current Build ✨
       </a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
+  <main class="max-w-5xl mx-auto px-6 py-10 space-y-12">
 
-    <!-- Hero Section -->
-    <section class="text-center max-w-2xl mx-auto space-y-4">
-      <h2 class="text-4xl font-extrabold text-white sm:text-5xl">Building & Logging in Public</h2>
-      <p class="text-slate-400 text-lg">
-        Welcome! Here is a live breakdown of what I'm currently working on, along with a showcase of my past projects.
+    <!-- Welcome Hero Section -->
+    <section class="bg-gradient-to-r from-amber-100 via-orange-100 to-rose-100 p-8 rounded-3xl shadow-sm border border-amber-200/50 text-center space-y-3">
+      <span class="inline-block bg-white text-amber-600 text-xs font-bold px-3 py-1 rounded-full shadow-sm uppercase tracking-wider">
+        👋 Welcome to my dev log
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+        Learning, Building &amp; Sharing
+      </h2>
+      <p class="text-slate-600 max-w-xl mx-auto text-base">
+        A cheerful spot where I keep track of what I'm working on right now, alongside all the cool projects I've tackled in class!
       </p>
     </section>
 
-    <!-- SECTION 1: Active Project Tracker -->
-    <section id="active-project" class="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-6 sm:p-8 shadow-xl">
-      <div class="flex items-center justify-between mb-6">
+    <!-- SECTION 1: Active Project (Bright Highlight) -->
+    <section id="active-project" class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border-2 border-emerald-400/60 relative overflow-hidden">
+      <!-- Top Decorative Accent -->
+      <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald-400 to-teal-500"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
         <div class="flex items-center space-x-3">
-          <span class="relative flex h-3 w-3">
+          <span class="flex h-4 w-4 relative">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-500"></span>
           </span>
-          <h3 class="text-xl font-bold text-white">Active Project Status</h3>
+          <h3 class="text-xl font-bold text-slate-900">Currently Working On</h3>
         </div>
-        <span id="last-updated" class="text-xs text-slate-400"></span>
+        <span id="last-updated" class="text-xs font-semibold bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-200"></span>
       </div>
 
       <div id="active-project-container" class="space-y-6">
@@ -47,109 +62,133 @@
       </div>
     </section>
 
-    <!-- SECTION 2: Portfolio -->
+    <!-- SECTION 2: Coursework & Class Projects -->
     <section class="space-y-6">
-      <div class="border-b border-slate-800 pb-4">
-        <h3 class="text-2xl font-bold text-white">Portfolio & Past Projects</h3>
-        <p class="text-slate-400 text-sm">Other completed and ongoing work.</p>
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+            <span>📚</span> Class Projects Showcase
+          </h3>
+          <p class="text-slate-500 text-sm">Everything I've built across my coursework.</p>
+        </div>
+        <span id="project-count" class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full"></span>
       </div>
 
-      <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="class-projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Injected via JavaScript -->
       </div>
     </section>
 
   </main>
 
-  <!-- DATA & LOGIC SCRIPT -->
+  <footer class="border-t border-amber-200/60 mt-16 py-8 text-center text-slate-400 text-sm">
+    Made with 💛 | Always updating as I learn!
+  </footer>
+
+  <!-- SCRIPT FOR EDITING YOUR PROJECTS -->
   <script>
     // =========================================================================
-    // EDIT YOUR DATA HERE TO UPDATE THE WEBSITE ACCORDINGLY!
+    // 1. UPDATE YOUR CURRENT ACTIVE PROJECT HERE
     // =========================================================================
-
-    const ACTIVE_PROJECT = {
+    const CURRENT_PROJECT = {
       title: "Heat Transfer Numerical Simulation",
-      status: "In Progress", // Options: "In Progress", "Testing", "On Hold"
-      lastUpdated: "Today",
-      progress: 70, // Percentage 0-100
-      description: "Developing C++ modules using LU decomposition to compute steady-state temperature distributions and validating against analytical models.",
+      tagline: "C++ & Numerical Analysis Coursework",
+      status: "In Progress ⚙️",
+      lastUpdated: "July 2026",
+      progress: 75, // Percentage (0 - 100)
+      description: "Building an LU decomposition program to calculate temperature distributions across a rod/plate and comparing the results against analytical models.",
       milestones: [
-        { name: "Core Algorithm & LU Solver", completed: true },
+        { name: "Core LU Decomposition Solver", completed: true },
         { name: "Boundary Condition Implementation", completed: true },
-        { name: "Data Visualization & Analytical Comparisons", completed: false },
-        { name: "Final Documentation & Report", completed: false }
+        { name: "Plotting T(x) & Analytical Comparison", completed: false },
+        { name: "Final Lab Report & Code Cleanup", completed: false }
       ]
     };
 
-    const PORTFOLIO_PROJECTS = [
+    // =========================================================================
+    // 2. ADD ALL YOUR CLASS PROJECTS HERE
+    // =========================================================================
+    const CLASS_PROJECTS = [
       {
-        title: "Numerical Analysis Suite",
-        category: "C++ / Scientific Computing",
-        description: "A collection of linear algebra solvers and iterative methods optimized for performance.",
-        tags: ["C++", "Algorithms", "Linear Algebra"],
-        status: "Completed",
-        link: "#"
+        title: "Matrix Method Linear Solvers",
+        course: "Numerical Methods",
+        icon: "fa-calculator",
+        color: "bg-blue-50 text-blue-600 border-blue-200",
+        description: "Implemented Gauss-Elimination, LU Factorization, and iterative solvers in C++ to handle sparse and dense linear systems.",
+        tags: ["C++", "Linear Algebra", "Algorithms"]
       },
       {
-        title: "Data Visualization Dashboard",
-        category: "Web Development",
-        description: "Interactive charting tool to plot complex simulation outputs against analytical formulas.",
-        tags: ["JavaScript", "HTML/CSS", "Charts"],
-        status: "Completed",
-        link: "#"
+        title: "Data Plotting & Analysis Tools",
+        course: "Engineering Computing",
+        icon: "fa-chart-line",
+        color: "bg-purple-50 text-purple-600 border-purple-200",
+        description: "Created scripts to graph numerical simulation results against theoretical formulas for quick visual comparison.",
+        tags: ["Data Vis", "Python / C++", "Plotting"]
       },
       {
-        title: "Future Engineering App",
-        category: "Software",
-        description: "Upcoming project focused on automating physics calculations and simulation workflows.",
-        tags: ["Planned"],
-        status: "Planned",
-        link: "#"
+        title: "Physics & Thermodynamics Lab",
+        course: "Physics II",
+        icon: "fa-fire",
+        color: "bg-orange-50 text-orange-600 border-orange-200",
+        description: "Experimental data collection and modeling heat transfer rates in different materials under uniform boundary conditions.",
+        tags: ["Physics", "Lab Work", "Modeling"]
+      },
+      {
+        title: "Interactive Web Dashboard Prototype",
+        course: "Web Development / Personal",
+        icon: "fa-laptop-code",
+        color: "bg-emerald-50 text-emerald-600 border-emerald-200",
+        description: "Designed a responsive, cheerful personal status tracker to log academic progress and share project results.",
+        tags: ["HTML", "Tailwind CSS", "JavaScript"]
       }
     ];
 
     // =========================================================================
-    // RENDERING LOGIC (DO NOT NEED TO EDIT UNLESS CUSTOMIZING LAYOUT)
+    // RENDER FUNCTIONS (DON'T EDIT UNLESS YOU WANT TO CHANGE THE DESIGN)
     // =========================================================================
 
-    function renderActiveProject() {
+    function renderCurrentProject() {
       const container = document.getElementById('active-project-container');
-      document.getElementById('last-updated').innerText = `Last updated: ${ACTIVE_PROJECT.lastUpdated}`;
+      document.getElementById('last-updated').innerText = `Updated: ${CURRENT_PROJECT.lastUpdated}`;
 
-      const milestonesHTML = ACTIVE_PROJECT.milestones.map(m => `
-        <li class="flex items-center space-x-3 text-sm">
-          <span class="flex-shrink-0 w-5 h-5 rounded-full ${m.completed ? 'bg-emerald-500/20 text-emerald-400' : 'bg-slate-700 text-slate-500'} flex items-center justify-center font-bold text-xs">
-            ${m.completed ? '✓' : '○'}
+      const milestonesHTML = CURRENT_PROJECT.milestones.map(m => `
+        <li class="flex items-center space-x-3 p-2 rounded-xl ${m.completed ? 'bg-emerald-50 text-emerald-900' : 'bg-slate-50 text-slate-500'}">
+          <span class="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${m.completed ? 'bg-emerald-500 text-white' : 'bg-slate-300 text-slate-600'}">
+            ${m.completed ? '✓' : '•'}
           </span>
-          <span class="${m.completed ? 'text-slate-200 line-through decoration-slate-500' : 'text-slate-400'}">${m.name}</span>
+          <span class="text-sm font-medium ${m.completed ? 'line-through opacity-80' : ''}">${m.name}</span>
         </li>
       `).join('');
 
       container.innerHTML = `
         <div class="space-y-4">
-          <div class="flex justify-between items-start">
-            <h4 class="text-2xl font-bold text-white">${ACTIVE_PROJECT.title}</h4>
-            <span class="px-3 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-full text-xs font-semibold">
-              ${ACTIVE_PROJECT.status}
+          <div class="flex flex-wrap justify-between items-start gap-2">
+            <div>
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">${CURRENT_PROJECT.tagline}</span>
+              <h4 class="text-2xl font-black text-slate-900">${CURRENT_PROJECT.title}</h4>
+            </div>
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-full text-xs font-bold">
+              ${CURRENT_PROJECT.status}
             </span>
           </div>
-          <p class="text-slate-300">${ACTIVE_PROJECT.description}</p>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">${CURRENT_PROJECT.description}</p>
           
           <!-- Progress Bar -->
           <div class="space-y-2 pt-2">
-            <div class="flex justify-between text-xs font-semibold">
-              <span class="text-slate-400">Completion</span>
-              <span class="text-indigo-400">${ACTIVE_PROJECT.progress}%</span>
+            <div class="flex justify-between text-xs font-bold">
+              <span class="text-slate-500">Overall Progress</span>
+              <span class="text-emerald-600">${CURRENT_PROJECT.progress}%</span>
             </div>
-            <div class="w-full bg-slate-700 rounded-full h-2.5 overflow-hidden">
-              <div class="bg-indigo-500 h-2.5 rounded-full transition-all duration-500" style="width: ${ACTIVE_PROJECT.progress}%"></div>
+            <div class="w-full bg-slate-100 rounded-full h-4 p-0.5 border border-slate-200">
+              <div class="bg-gradient-to-r from-emerald-400 to-teal-500 h-2.5 rounded-full transition-all duration-700 shadow-sm" style="width: ${CURRENT_PROJECT.progress}%"></div>
             </div>
           </div>
 
           <!-- Milestones Checklist -->
-          <div class="pt-4 border-t border-slate-700/50">
-            <h5 class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-3">Key Milestones</h5>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="pt-4 border-t border-slate-100">
+            <h5 class="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">Milestones Checklist</h5>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               ${milestonesHTML}
             </ul>
           </div>
@@ -157,31 +196,37 @@
       `;
     }
 
-    function renderPortfolio() {
-      const container = document.getElementById('portfolio-grid');
-      container.innerHTML = PORTFOLIO_PROJECTS.map(item => `
-        <div class="bg-slate-800/40 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition flex flex-col justify-between space-y-4">
-          <div class="space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="text-xs font-medium text-indigo-400">${item.category}</span>
-              <span class="text-xs text-slate-500">${item.status}</span>
+    function renderClassProjects() {
+      const container = document.getElementById('class-projects-grid');
+      document.getElementById('project-count').innerText = `${CLASS_PROJECTS.length} Projects Total`;
+
+      container.innerHTML = CLASS_PROJECTS.map(item => `
+        <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition border border-amber-200/60 flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg border ${item.color}">
+                ${item.course}
+              </span>
+              <i class="fa-solid ${item.icon} text-slate-400"></i>
             </div>
-            <h4 class="text-lg font-bold text-white">${item.title}</h4>
-            <p class="text-slate-400 text-sm">${item.description}</p>
+            <h4 class="text-lg font-bold text-slate-900">${item.title}</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">${item.description}</p>
           </div>
-          <div class="pt-4 border-t border-slate-800/60 flex items-center justify-between">
-            <div class="flex flex-wrap gap-1">
-              ${item.tags.map(t => `<span class="bg-slate-700/50 text-slate-300 text-[10px] px-2 py-0.5 rounded">${t}</span>`).join('')}
-            </div>
-            <a href="${item.link}" class="text-xs text-indigo-400 hover:underline">View →</a>
+
+          <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
+            ${item.tags.map(tag => `
+              <span class="bg-amber-50 text-amber-900 text-xs font-medium px-2.5 py-0.5 rounded-md border border-amber-200/50">
+                #${tag}
+              </span>
+            `).join('')}
           </div>
         </div>
       `).join('');
     }
 
-    // Initial Render
-    renderActiveProject();
-    renderPortfolio();
+    // Initialize
+    renderCurrentProject();
+    renderClassProjects();
   </script>
 </body>
 </html>
