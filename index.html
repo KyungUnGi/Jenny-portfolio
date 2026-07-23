@@ -3,232 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Portfolio</title>
+  <title>Jenny's Portfolio — Hardware &amp; Embedded Systems</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
   <!-- Navigation Bar -->
-  <header class="bg-slate-950/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <span class="text-2xl"></span>
-        <h1 class="text-xl font-bold tracking-tight text-white">
-          Jenny's<span class="text-emerald-400"> Portfolio</span>
+        <span class="text-2xl">🤖</span>
+        <h1 class="text-xl font-bold tracking-tight text-slate-900">
+          Jenny's<span class="text-emerald-600"> Portfolio</span>
         </h1>
       </div>
       <div class="flex items-center space-x-4">
-        <a href="https://github.com/KyungUnGi/posturbot" target="_blank" class="text-slate-400 hover:text-white transition flex items-center gap-2 text-sm font-semibold bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-          <i class="fa-brands fa-github text-base"></i> GitHub Repo
+        <a href="https://github.com/KyungUnGi" target="_blank" class="text-slate-600 hover:text-slate-900 transition flex items-center gap-2 text-sm font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg border border-slate-200">
+          <i class="fa-brands fa-github text-base"></i> GitHub
         </a>
       </div>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
-<!-- PERSONAL INTRO SECTION -->
-<section class="bg-slate-800/80 border border-slate-700/80 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl">
-  <!-- Avatar / Placeholder -->
-  <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-emerald-500 to-indigo-500 p-1">
-    <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center overflow-hidden">
-      <!-- REPLACE WITH YOUR PHOTO: <img src="profile.jpg" class="w-full h-full object-cover"> -->
-      <span class="text-3xl font-extrabold text-emerald-400">KU</span>
-    </div>
-  </div>
 
-  <!-- Bio Text -->
-  <div class="space-y-3 text-center md:text-left">
-    <div class="flex flex-wrap justify-center md:justify-start items-center gap-3">
-      <h2 class="text-2xl sm:text-3xl font-bold text-white">Hi, I'm Jenny Choung 👋</h2>
-      <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs px-2.5 py-0.5 rounded-full font-semibold">
-        Hardware &amp; Embedded Systems
-      </span>
-    </div>
-    <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-      Engineering graduate passionate about building end-to-end physical devices—from SolidWorks CAD and PCB/circuit prototyping to embedded firmware and web dashboards. 
-    </p>
-    <!-- Contact Links -->
-    <div class="pt-1 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-medium text-slate-400">
-      <a href="https://github.com/KyungUnGi" target="_blank" class="hover:text-emerald-400 transition flex items-center gap-1.5">
-        <i class="fa-brands fa-github text-sm"></i> GitHub
-      </a>
-      <a href="mailto:ruddbs929@gmail.com" class="hover:text-emerald-400 transition flex items-center gap-1.5">
-        <i class="fa-solid fa-envelope text-sm"></i> Contact
-      </a>
-      <a href="linkedin.com/in/kychoung/" class="hover:text-emerald-400 transition flex items-center gap-1.5">
-        <i class="fa-brands fa-linkedin test-sm"></i> Linkedin
-    </div>
-  </div>
-</section>
-    <!-- HERO SECTION -->
-    <section class="bg-gradient-to-r from-slate-800/80 via-slate-800/40 to-slate-800/80 p-8 sm:p-10 rounded-3xl border border-slate-700/60 shadow-2xl relative overflow-hidden">
-      <div class="max-w-3xl space-y-4">
-        <div class="inline-flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs font-bold">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Dual-IMU Wearable System</span>
+    <!-- 1. PERSONAL INTRO SECTION -->
+    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
+      <!-- Avatar / Placeholder -->
+      <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 p-1 shadow-inner">
+        <div class="w-full h-full bg-slate-100 rounded-[14px] flex items-center justify-center overflow-hidden">
+          <!-- REPLACE WITH YOUR PHOTO: <img src="profile.jpg" class="w-full h-full object-cover"> -->
+          <span class="text-3xl font-extrabold text-emerald-600">KU</span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-          Cervical Posture Monitor for Tech Neck Detection
-        </h2>
-        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-          An open-source, non-adhesive wearable system using relative angle measurement across two IMUs to detect forward head posture (FHP) without false positives from body lean.
+      </div>
+
+      <!-- Bio Text -->
+      <div class="space-y-3 text-center md:text-left">
+        <div class="flex flex-wrap justify-center md:justify-start items-center gap-3">
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Hi, I'm Jenny Choung 👋</h2>
+          <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-0.5 rounded-full font-semibold">
+            Hardware &amp; Embedded Systems
+          </span>
+        </div>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+          Engineering graduate passionate about building end-to-end physical devices—from SolidWorks CAD and PCB/circuit prototyping to embedded firmware and web dashboards.
         </p>
-        <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-emerald-300">
-          <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">ESP32-C3</span>
-          <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">2x MPU-6050</span>
-          <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Web Bluetooth (BLE)</span>
-          <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">SolidWorks CAD</span>
-          <span class="bg-slate-900/80 px-2.5 py-1 rounded border border-slate-700">Complementary Filter</span>
+        <!-- Contact Links -->
+        <div class="pt-1 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-medium text-slate-600">
+          <a href="https://github.com/KyungUnGi" target="_blank" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+            <i class="fa-brands fa-github text-sm"></i> GitHub
+          </a>
+          <a href="mailto:ruddbs929@gmail.com" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+            <i class="fa-solid fa-envelope text-sm"></i> Contact
+          </a>
+          <a href="https://linkedin.com/in/kychoung/" target="_blank" class="hover:text-emerald-600 transition flex items-center gap-1.5">
+            <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- ACTIVE PROJECT STATUS & METRICS -->
-    <section id="active-project" class="bg-slate-800/50 border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-8 shadow-xl">
-      
-      <!-- Status Header -->
-      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-700/60 pb-6">
-        <div>
-          <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Development Status</span>
-          <h3 class="text-2xl font-bold text-white">Hardware Soldering &amp; CAD Prototyping</h3>
-        </div>
-        <div class="flex items-center space-x-3 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-700">
-          <span class="text-xs font-semibold text-slate-400">Completion:</span>
-          <span class="text-lg font-bold text-emerald-400">70%</span>
-        </div>
+
+    <!-- 2. CURRENT ACTIVE PROJECT CARD -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Current Project Focus
+        </h3>
+        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+          In Active Prototyping
+        </span>
       </div>
 
-      <!-- Key Milestones -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-slate-900/60 p-4 rounded-xl border border-emerald-500/30">
-          <div class="text-emerald-400 text-sm font-bold flex items-center gap-2 mb-1">
-            <i class="fa-solid fa-check-circle"></i> Electronics Circuit
+      <!-- Pressable Card Container -->
+      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition duration-200 space-y-6">
+        <div class="flex flex-col md:flex-row justify-between md:items-start gap-4">
+          <div class="space-y-2">
+            <h4 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              PosturBot — Wearable Cervical Posture Monitor
+            </h4>
+            <p class="text-slate-600 text-sm sm:text-base max-w-3xl leading-relaxed">
+              A dual-IMU wearable system designed from scratch to detect forward head posture (tech neck) using relative angle measurement—eliminating false positives from full-body lean.
+            </p>
           </div>
-          <p class="text-xs text-slate-400">Breadboard validated: 2x IMU, ESP32C3 BLE, haptics &amp; charging.</p>
+          <!-- Action Button linking to separate page -->
+          <a href="posturbot.html" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl transition shadow-sm self-start whitespace-nowrap text-sm">
+            View Full Project Details <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
         </div>
 
-        <div class="bg-slate-900/60 p-4 rounded-xl border border-emerald-500/30">
-          <div class="text-emerald-400 text-sm font-bold flex items-center gap-2 mb-1">
-            <i class="fa-solid fa-check-circle"></i> Ear Hook CAD
+        <!-- Quick Summary Bullet Points -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Core Hardware</div>
+            <p class="text-xs text-slate-700 font-medium">Seeed XIAO ESP32C3 + Dual MPU-6050 IMUs + TP4056 + Coin Motor</p>
           </div>
-          <p class="text-xs text-slate-400">Lofted ABS shell &amp; snap-fit pillar retention completed in SolidWorks.</p>
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Key Innovation</div>
+            <p class="text-xs text-slate-700 font-medium">Complementary filter relative angle calculation + 4-stage escalating haptics</p>
+          </div>
+          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
+            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Mechanical &amp; Web</div>
+            <p class="text-xs text-slate-700 font-medium">SolidWorks ABS Ear Hook CAD + Web Bluetooth JS/Chart.js Dashboard</p>
+          </div>
         </div>
 
-        <div class="bg-slate-900/60 p-4 rounded-xl border border-amber-500/30">
-          <div class="text-amber-400 text-sm font-bold flex items-center gap-2 mb-1">
-            <i class="fa-solid fa-spinner animate-spin"></i> Neck Housing CAD
-          </div>
-          <p class="text-xs text-slate-400">Designing C7 housing for battery, board &amp; TPU coil cable retention.</p>
-        </div>
-
-        <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
-          <div class="text-slate-500 text-sm font-bold flex items-center gap-2 mb-1">
-            <i class="fa-regular fa-circle"></i> Assembly &amp; Demo
-          </div>
-          <p class="text-xs text-slate-500">Perfboard soldering, BOM calculation, and video demo.</p>
+        <!-- Tech Stack Tags -->
+        <div class="flex flex-wrap gap-2 pt-1 text-xs font-mono text-emerald-800">
+          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Embedded C++</span>
+          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">SolidWorks CAD</span>
+          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Web Bluetooth API</span>
+          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">PlatformIO</span>
         </div>
       </div>
-
-      <!-- System Architecture Details -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4">
-        
-        <!-- Dual IMU Algorithm -->
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-700/50 space-y-2">
-          <div class="text-emerald-400 text-lg"><i class="fa-solid fa-microchip"></i></div>
-          <h4 class="font-bold text-white text-base">Dual-IMU Cancellation</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Measures relative tilt between ear (0x68) and neck C7 (0x69). A complementary filter (&alpha;=0.90 gyro, &alpha;=0.10 accel) cancels out full-body lean, preventing false alerts.
-          </p>
-        </div>
-
-        <!-- Escalating Haptic Engine -->
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-700/50 space-y-2">
-          <div class="text-amber-400 text-lg"><i class="fa-solid fa-bell"></i></div>
-          <h4 class="font-bold text-white text-base">4-State Haptic Escalation</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            When angle &gt; 15&deg;, a 2N2222-driven coin motor escalates haptic patterns based on duration: WARN (0s) &rarr; GENTLE (10s) &rarr; STRONG (30s) &rarr; CRITICAL (60s).
-          </p>
-        </div>
-
-        <!-- Web Bluetooth & CSV Dashboard -->
-        <div class="bg-slate-900/40 p-5 rounded-2xl border border-slate-700/50 space-y-2">
-          <div class="text-indigo-400 text-lg"><i class="fa-solid fa-wifi"></i></div>
-          <h4 class="font-bold text-white text-base">BLE Dashboard &amp; Wireless Calibration</h4>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Streams real-time cervical angle over Web Bluetooth to a JS/Chart.js web dashboard with session statistics, CSV export, and wireless baseline recalibration.
-          </p>
-        </div>
-
-      </div>
-
     </section>
 
-    <!-- VISUAL GALLERY (Photos & CAD Renders) -->
+
+    <!-- 3. OTHER PROJECTS SECTION -->
     <section class="space-y-6">
-      <div class="border-b border-slate-800 pb-4 flex justify-between items-end">
-        <div>
-          <h3 class="text-2xl font-bold text-white">Project Visuals &amp; Media</h3>
-          <p class="text-slate-400 text-sm">Hardware prototypes, SolidWorks models, and software interfaces.</p>
-        </div>
+      <div class="border-b border-slate-200 pb-4">
+        <h3 class="text-xl font-bold text-slate-900">Other Engineering Projects</h3>
+        <p class="text-slate-500 text-sm">Past academic coursework, capstone projects, and embedded hardware prototypes.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Photo 1 Placeholder -->
-        <div class="bg-slate-800/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition">
-          <div class="bg-slate-950 h-48 flex items-center justify-center text-slate-600 border-b border-slate-800">
-            <!-- REPLACE THIS WITH YOUR ENCLOSURE PHOTO: <img src="ear-hook.jpg" class="w-full h-48 object-cover"> -->
-            <div class="text-center p-4">
-              <i class="fa-solid fa-cube text-3xl mb-2 text-slate-600"></i>
-              <p class="text-xs font-mono text-slate-500">Ear Hook CAD / 3D Print Photo</p>
+        <!-- Project 2 Card -->
+        <a href="project2.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Academic / Embedded</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
             </div>
+            <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
+              [Project 2 Title — e.g., Heat Conduction Solver]
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Brief 1–2 sentence summary of your second project. Highlighting technical focus (e.g., C++ numerical analysis, LU decomposition, microcontrollers).
+            </p>
           </div>
-          <div class="p-4 space-y-1">
-            <h5 class="text-sm font-bold text-white">Ear Hook Enclosure (ABS)</h5>
-            <p class="text-xs text-slate-400">Lofted organic shape with snap-fit MPU-6050 pillar support.</p>
+          <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">C++</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Numerical Methods</span>
           </div>
-        </div>
+        </a>
 
-        <!-- Photo 2 Placeholder -->
-        <div class="bg-slate-800/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition">
-          <div class="bg-slate-950 h-48 flex items-center justify-center text-slate-600 border-b border-slate-800">
-            <!-- REPLACE THIS WITH YOUR BREADBOARD PHOTO: <img src="breadboard.jpg" class="w-full h-48 object-cover"> -->
-            <div class="text-center p-4">
-              <i class="fa-solid fa-microchip text-3xl mb-2 text-slate-600"></i>
-              <p class="text-xs font-mono text-slate-500">Breadboard Circuit Photo</p>
+        <!-- Project 3 Card -->
+        <a href="project3.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">CAD &amp; Fabrication</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
             </div>
+            <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
+              [Project 3 Title — e.g., Mechanical Assembly]
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Brief 1–2 sentence summary of your third project. Highlighting mechanical design, SolidWorks, stress analysis, or 3D printing.
+            </p>
           </div>
-          <div class="p-4 space-y-1">
-            <h5 class="text-sm font-bold text-white">Circuit &amp; Sensor Validation</h5>
-            <p class="text-xs text-slate-400">XIAO ESP32C3 wired with dual MPU-6050s, TP4056 &amp; coin motor.</p>
+          <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">SolidWorks</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">3D Printing</span>
           </div>
-        </div>
-
-        <!-- Photo 3 Placeholder -->
-        <div class="bg-slate-800/40 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition">
-          <div class="bg-slate-950 h-48 flex items-center justify-center text-slate-600 border-b border-slate-800">
-            <!-- REPLACE THIS WITH YOUR DASHBOARD PHOTO: <img src="dashboard.png" class="w-full h-48 object-cover"> -->
-            <div class="text-center p-4">
-              <i class="fa-solid fa-chart-line text-3xl mb-2 text-slate-600"></i>
-              <p class="text-xs font-mono text-slate-500">Web Bluetooth Dashboard Photo</p>
-            </div>
-          </div>
-          <div class="p-4 space-y-1">
-            <h5 class="text-sm font-bold text-white">Web Bluetooth Dashboard</h5>
-            <p class="text-xs text-slate-400">Chart.js real-time angle streaming, session analytics &amp; CSV export.</p>
-          </div>
-        </div>
+        </a>
 
       </div>
     </section>
 
   </main>
 
-  <footer class="border-t border-slate-800 mt-20 py-8 text-center text-slate-500 text-sm">
-    PosturBot Portfolio Log | Built with Tailwind CSS
+  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-slate-500 text-sm bg-white">
+    Jenny Choung Portfolio | Built with Tailwind CSS
   </footer>
 
 </body>
