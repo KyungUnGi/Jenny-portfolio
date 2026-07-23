@@ -1,185 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jenny's Portfolio — Hardware &amp; Embedded Systems</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
-
-  <!-- Navigation Bar -->
-  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <span class="text-2xl">🤖</span>
-        <h1 class="text-xl font-bold tracking-tight text-slate-900">
-          Jenny's<span class="text-emerald-600"> Portfolio</span>
-        </h1>
-      </div>
-      <div class="flex items-center space-x-4">
-        <a href="https://github.com/KyungUnGi" target="_blank" class="text-slate-600 hover:text-slate-900 transition flex items-center gap-2 text-sm font-semibold bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg border border-slate-200">
-          <i class="fa-brands fa-github text-base"></i> GitHub
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
-
-    <!-- 1. PERSONAL INTRO SECTION -->
-    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 shadow-sm">
-      <!-- Avatar / Placeholder -->
-      <div class="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 p-1 shadow-inner">
-        <div class="w-full h-full bg-slate-100 rounded-[14px] flex items-center justify-center overflow-hidden">
-          <!-- REPLACE WITH YOUR PHOTO: <img src="profile.jpg" class="w-full h-full object-cover"> -->
-          <span class="text-3xl font-extrabold text-emerald-600">KU</span>
-        </div>
-      </div>
-
-      <!-- Bio Text -->
-      <div class="space-y-3 text-center md:text-left">
-        <div class="flex flex-wrap justify-center md:justify-start items-center gap-3">
-          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Hi, I'm Jenny Choung 👋</h2>
-          <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-2.5 py-0.5 rounded-full font-semibold">
-            Hardware &amp; Embedded Systems
-          </span>
-        </div>
-        <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-          Engineering graduate passionate about building end-to-end physical devices—from SolidWorks CAD and PCB/circuit prototyping to embedded firmware and web dashboards.
-        </p>
-        <!-- Contact Links -->
-        <div class="pt-1 flex flex-wrap justify-center md:justify-start gap-4 text-xs font-medium text-slate-600">
-          <a href="https://github.com/KyungUnGi" target="_blank" class="hover:text-emerald-600 transition flex items-center gap-1.5">
-            <i class="fa-brands fa-github text-sm"></i> GitHub
-          </a>
-          <a href="mailto:ruddbs929@gmail.com" class="hover:text-emerald-600 transition flex items-center gap-1.5">
-            <i class="fa-solid fa-envelope text-sm"></i> Contact
-          </a>
-          <a href="https://linkedin.com/in/kychoung/" target="_blank" class="hover:text-emerald-600 transition flex items-center gap-1.5">
-            <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
-          </a>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- 2. CURRENT ACTIVE PROJECT CARD -->
-    <section class="space-y-4">
-      <div class="flex items-center justify-between">
-        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          Current Project Focus
-        </h3>
-        <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-          In Active Prototyping
-        </span>
-      </div>
-
-      <!-- Pressable Card Container -->
-      <div class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition duration-200 space-y-6">
-        <div class="flex flex-col md:flex-row justify-between md:items-start gap-4">
-          <div class="space-y-2">
-            <h4 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              PosturBot — Wearable Cervical Posture Monitor
-            </h4>
-            <p class="text-slate-600 text-sm sm:text-base max-w-3xl leading-relaxed">
-              A dual-IMU wearable system designed from scratch to detect forward head posture (tech neck) using relative angle measurement—eliminating false positives from full-body lean.
-            </p>
-          </div>
-          <!-- Action Button linking to separate page -->
-          <a href="posturbot.html" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl transition shadow-sm self-start whitespace-nowrap text-sm">
-            View Full Project Details <i class="fa-solid fa-arrow-right text-xs"></i>
-          </a>
-        </div>
-
-        <!-- Quick Summary Bullet Points -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
-            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Core Hardware</div>
-            <p class="text-xs text-slate-700 font-medium">Seeed XIAO ESP32C3 + Dual MPU-6050 IMUs + TP4056 + Coin Motor</p>
-          </div>
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
-            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Key Innovation</div>
-            <p class="text-xs text-slate-700 font-medium">Complementary filter relative angle calculation + 4-stage escalating haptics</p>
-          </div>
-          <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 space-y-1">
-            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Mechanical &amp; Web</div>
-            <p class="text-xs text-slate-700 font-medium">SolidWorks ABS Ear Hook CAD + Web Bluetooth JS/Chart.js Dashboard</p>
-          </div>
-        </div>
-
-        <!-- Tech Stack Tags -->
-        <div class="flex flex-wrap gap-2 pt-1 text-xs font-mono text-emerald-800">
-          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Embedded C++</span>
-          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">SolidWorks CAD</span>
-          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">Web Bluetooth API</span>
-          <span class="bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">PlatformIO</span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- 3. OTHER PROJECTS SECTION -->
+<!-- OTHER ENGINEERING PROJECTS SECTION -->
     <section class="space-y-6">
       <div class="border-b border-slate-200 pb-4">
         <h3 class="text-xl font-bold text-slate-900">Other Engineering Projects</h3>
-        <p class="text-slate-500 text-sm">Past academic coursework, capstone projects, and embedded hardware prototypes.</p>
+        <p class="text-slate-500 text-sm">Robotics simulations, biomedical devices, computer vision, and physical prototyping showcase.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <!-- Project 2 Card -->
-        <a href="project2.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+        <!-- 1. BME Capstone: CIMT Switch Device -->
+        <a href="cimt-switch.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
           <div class="space-y-2">
             <div class="flex justify-between items-start">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Academic / Embedded</span>
+              <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Biomedical &amp; Hardware</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
             </div>
             <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
-              [Project 2 Title — e.g., Heat Conduction Solver]
+              CIMT Switch Device for Children with CP
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
-              Brief 1–2 sentence summary of your second project. Highlighting technical focus (e.g., C++ numerical analysis, LU decomposition, microcontrollers).
+              Unconstrained wearable therapeutic switch device using Hall effect sensing with wireless communication to support non-dominant hand rehabilitation in pediatric cerebral palsy.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
-            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">C++</span>
-            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Numerical Methods</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Hall Effect</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Wireless</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Wearable Tech</span>
           </div>
         </a>
 
-        <!-- Project 3 Card -->
-        <a href="project3.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+        <!-- 2. Real-Time Yoga Posture Correction -->
+        <a href="posture-correction.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
           <div class="space-y-2">
             <div class="flex justify-between items-start">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">CAD &amp; Fabrication</span>
+              <span class="text-xs font-bold text-indigo-700 uppercase tracking-wider bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">Computer Vision &amp; Math</span>
               <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
             </div>
             <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
-              [Project 3 Title — e.g., Mechanical Assembly]
+              Real-Time Posture &amp; Kinematic Alignment
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
-              Brief 1–2 sentence summary of your third project. Highlighting mechanical design, SolidWorks, stress analysis, or 3D printing.
+              Yoga pose correction system in Python leveraging Google MediaPipe pose estimation and a custom Jacobi SVD solver to evaluate joint alignment against ground truth.
             </p>
           </div>
           <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
-            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">SolidWorks</span>
-            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">3D Printing</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Python</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MediaPipe</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Jacobi SVD</span>
+          </div>
+        </a>
+
+        <!-- 3. Bioinspired Robot: Undulating Gliding Snake -->
+        <a href="snake-robot.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-teal-700 uppercase tracking-wider bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Robotics &amp; Simulation</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
+              Undulating Gliding Snake Robot Dynamics
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              MATLAB/Simulink simulation modeling undulatory gliding dynamics to analyze body-wave parameters, trajectory, and stability for a multi-segment bio-inspired robot.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">MATLAB</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Simulink</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Multi-body Dynamics</span>
+          </div>
+        </a>
+
+        <!-- 4. DIY Design & Fabrication Portfolio -->
+        <a href="fabrication-portfolio.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Rapid Prototyping</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
+              Design &amp; Fabrication Series (6 Works)
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              End-to-end prototyping suite spanning laser cutting, heat-formed acrylics, silicone molding, resin casting, and foam/clay mockups translated from CAD models.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Laser Cutting</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Silicone Molding</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Resin Casting</span>
+          </div>
+        </a>
+
+        <!-- 5. Clean CMU Game -->
+        <a href="clean-cmu.html" class="group bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-slate-300 transition duration-200 flex flex-col justify-between space-y-4 md:col-span-2">
+          <div class="space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-xs font-bold text-sky-700 uppercase tracking-wider bg-sky-50 px-2 py-0.5 rounded border border-sky-200">Python Dev</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-900 group-hover:text-emerald-600 transition">
+              Clean CMU — Educational Game
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Educational game built in Python focused on proper trash disposal and environmental awareness, integrating custom physics-based projectile mechanics and hyperbola formulas into a maze environment.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2 text-[11px] font-mono text-slate-600">
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Python</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Physics Engine</span>
+            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Game Mechanics</span>
           </div>
         </a>
 
       </div>
     </section>
-
-  </main>
-
-  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-slate-500 text-sm bg-white">
-    Jenny Choung Portfolio | Built with Tailwind CSS
-  </footer>
-
-</body>
-</html>
