@@ -3,99 +3,434 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real-Time Posture Correction — Jenny's Portfolio</title>
+  <title>Real-Time Posture Correction &amp; Kinematic Alignment — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Lightbox Modal Transitions */
+    #imageModal {
+      transition: opacity 0.25s ease-in-out;
+    }
+    #imageModal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #imageModal:not(.hidden) {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Active Node Ring Transition */
+    .flow-node.active-node {
+      border-color: #6366f1 !important;
+      background-color: #eef2ff !important;
+      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.25);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+  <!-- LIGHTBOX MODAL OVERLAY -->
+  <div id="imageModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden flex flex-col items-center p-4">
+      
+      <!-- Close Button (X) -->
+      <button id="closeModal" class="absolute top-3 right-3 text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold transition z-10 focus:outline-none">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Enlarged Image Display -->
+      <div class="w-full h-full flex items-center justify-center overflow-auto p-2">
+        <img id="modalImg" src="" alt="Enlarged View" class="max-h-[80vh] max-w-full object-contain rounded-lg">
+      </div>
+
+      <!-- Caption -->
+      <p id="modalCaption" class="text-xs sm:text-sm text-slate-600 font-medium pt-3 text-center border-t border-slate-100 w-full mt-2"></p>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-40 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-slate-600 hover:text-slate-900 transition flex items-center gap-2 text-sm font-semibold">
-        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      <a href="index.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-indigo-600 text-sm font-semibold transition">
+        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
       </a>
-      <span class="text-xs font-bold text-indigo-700 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
-        24-703 Coursework (2026)
+      <span class="text-xs font-mono font-bold bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full border border-indigo-200">
+        Numerical Methods Showcase
       </span>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
 
-    <!-- HERO -->
-    <section class="bg-white border border-slate-200 p-8 sm:p-10 rounded-3xl shadow-sm space-y-4">
-      <div class="inline-flex items-center space-x-2 bg-indigo-50 text-indigo-700 border border-indigo-200 px-3 py-1 rounded-full text-xs font-bold">
-        <i class="fa-solid fa-camera"></i>
-        <span>Computer Vision &amp; Kinematic Alignment</span>
+    <!-- HERO / TITLE SECTION -->
+    <section class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-6">
+      <div class="space-y-3">
+        <div class="inline-flex items-center gap-2 text-xs font-bold text-indigo-600 uppercase tracking-widest bg-indigo-50 px-3 py-1 rounded-md border border-indigo-200">
+          Computer Vision &amp; Kinematic Optimization
+        </div>
+        
+        <!-- Header Title + Status Tag -->
+        <div class="flex flex-wrap items-center gap-3">
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">Kinematic Posture Alignment</h1>
+          <span class="inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 border border-indigo-200 text-xs px-3 py-1 rounded-full font-bold shadow-sm">
+            <i class="fa-solid fa-book-bookmark text-indigo-600"></i>
+            CMU 24-703 Numerical Methods Project
+          </span>
+        </div>
+
+        <h2 class="text-xl sm:text-2xl text-slate-600 font-medium">Real-Time Yoga Form Evaluation &amp; Digital Coaching via Jacobi SVD</h2>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900">
-        Real-Time Posture Correction &amp; Kinematic Alignment
-      </h1>
-      <p class="text-slate-600 text-base sm:text-lg max-w-3xl leading-relaxed">
-        A real-time yoga pose evaluation and correction system built in Python using Google MediaPipe for skeletal landmark extraction and a custom Jacobi Singular Value Decomposition (SVD) solver for spatial alignment.
-      </p>
-      <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-indigo-800">
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Python</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Google MediaPipe</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Jacobi SVD Solver</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">OpenCV</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Kinematic Mapping</span>
+
+      <!-- Tech Stack Tags -->
+      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 pt-2 border-t border-slate-100">
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Python</span>
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Google MediaPipe</span>
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Jacobi SVD Algorithm</span>
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Rigid Pose Registration</span>
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">OpenCV</span>
+        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Biomechanical Angle Vectors</span>
+      </div>
+
+      <!-- INTERACTIVE SYSTEM ARCHITECTURE OVERVIEW CARD -->
+      <div class="bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 grid grid-cols-1 md:grid-cols-12 gap-6 p-6 items-center">
+        
+        <div class="md:col-span-5 space-y-4">
+          <h3 class="text-xl font-bold text-slate-900">Project Overview</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Developed at Carnegie Mellon University for Numerical Methods (24-703), this tool evaluates human biomechanics in real-time using standard webcam feeds. By extracting key joint landmarks with Google MediaPipe, the system solves the rigid body alignment problem via a custom-built <strong>Jacobi Singular Value Decomposition (SVD)</strong> pipeline.
+          </p>
+          <ul class="space-y-2 text-xs text-slate-700 list-disc list-inside font-medium">
+            <li>Optimal rigid rotation mapping user coordinates onto ground-truth instructor poses.</li>
+            <li>Hybrid 2D/3D coordinate switching to eliminate single-lens longitudinal Z-depth ambiguity.</li>
+            <li>Real-time digital coaching with targeted angular feedback (e.g., <em>"Extend left shoulder moderately"</em>).</li>
+          </ul>
+        </div>
+
+        <!-- STAGGERED CIRCLE FLOWCHART CONTAINER -->
+        <div class="md:col-span-7 bg-white rounded-xl border border-slate-200 p-5 shadow-sm space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-100 pb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">System Processing Pipeline</span>
+            <span class="text-[10px] font-mono bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-100 font-bold">Hover Node for Details</span>
+          </div>
+
+          <!-- Staggered Circles Layout -->
+          <div class="relative py-4 px-2 flex justify-between items-center max-w-lg mx-auto">
+            
+            <!-- Node 1: Live Video Feed (Top Row) -->
+            <div class="flow-node active-node relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-slate-500 bg-white flex flex-col items-center justify-center text-center p-2 cursor-pointer transition-all duration-200 -mt-6"
+                 data-title="1. Live Video Feed &amp; Landmark Tracking"
+                 data-desc="Standard webcam video feed combined with real-time Google MediaPipe keypoint detection to capture 33 skeletal landmarks continuously."
+                 data-tag="Input Stage">
+              <i class="fa-solid fa-video text-slate-700 text-lg mb-1"></i>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-800 leading-tight">Live Video Feed</span>
+            </div>
+
+            <!-- Arrow 1 -> 2 (Down Curved) -->
+            <div class="text-slate-300 text-lg sm:text-xl font-bold -mt-2">
+              <i class="fa-solid fa-arrow-right-long transform rotate-45"></i>
+            </div>
+
+            <!-- Node 2: SVD Alignment (Bottom Row) -->
+            <div class="flow-node relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-slate-500 bg-white flex flex-col items-center justify-center text-center p-2 cursor-pointer transition-all duration-200 mt-8"
+                 data-title="2. SVD Matrix Rigid Alignment"
+                 data-desc="Mean-centers joint coordinate matrices, calculates cross-covariance C = AᵀB, and solves for optimal rotation R = U · Vᵀ using custom Jacobi SVD."
+                 data-tag="Algorithmic Core">
+              <i class="fa-solid fa-calculator text-slate-700 text-lg mb-1"></i>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-800 leading-tight">SVD Alignment</span>
+            </div>
+
+            <!-- Arrow 2 -> 3 (Up Curved) -->
+            <div class="text-slate-300 text-lg sm:text-xl font-bold mt-4">
+              <i class="fa-solid fa-arrow-right-long transform -rotate-45"></i>
+            </div>
+
+            <!-- Node 3: Comparison w/ Ground Truth Data (Top Row) -->
+            <div class="flow-node relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-slate-500 bg-white flex flex-col items-center justify-center text-center p-2 cursor-pointer transition-all duration-200 -mt-6"
+                 data-title="3. Comparison w/ Ground Truth Data"
+                 data-desc="Maps rotated user joint matrix against pre-calculated ground-truth instructor vectors using hybrid 2D or 3D coordinate space."
+                 data-tag="Pose Verification">
+              <i class="fa-solid fa-diagram-project text-slate-700 text-lg mb-1"></i>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-800 leading-tight">Comparison w/ Ground Truth</span>
+            </div>
+
+            <!-- Arrow 3 -> 4 (Down Curved) -->
+            <div class="text-slate-300 text-lg sm:text-xl font-bold -mt-2">
+              <i class="fa-solid fa-arrow-right-long transform rotate-45"></i>
+            </div>
+
+            <!-- Node 4: Coaching (Bottom Row) -->
+            <div class="flow-node relative z-10 w-24 h-24 sm:w-28 sm:h-28 rounded-full border-4 border-slate-500 bg-white flex flex-col items-center justify-center text-center p-2 cursor-pointer transition-all duration-200 mt-8"
+                 data-title="4. Real-Time Coaching &amp; Feedback"
+                 data-desc="Computes 8 biomechanical joint angles, generates a 1–5 performance score, and renders actionable verbal tips for misaligned joints."
+                 data-tag="User Feedback">
+              <i class="fa-solid fa-comment-medical text-slate-700 text-lg mb-1"></i>
+              <span class="text-[10px] sm:text-xs font-bold text-slate-800 leading-tight">Coaching</span>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Detail Pop-Out Card -->
+          <div class="bg-slate-900 rounded-xl p-4 text-white space-y-1.5 border border-slate-800 shadow-md">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
+              <span id="nodeTitle" class="font-bold text-indigo-300 text-xs sm:text-sm">1. Live Video Feed &amp; Landmark Tracking</span>
+              <span id="nodeTag" class="text-[10px] font-mono bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">Input Stage</span>
+            </div>
+            <p id="nodeDesc" class="text-xs text-slate-300 leading-relaxed pt-1">
+              Standard webcam video feed combined with real-time Google MediaPipe keypoint detection to capture 33 skeletal landmarks continuously.
+            </p>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
-    <!-- TECHNICAL HIGHLIGHTS -->
-    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-sm">
-      <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-4">Key System Architecture</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
-          <div class="text-indigo-600 text-lg"><i class="fa-solid fa-person-rays"></i></div>
-          <h4 class="font-bold text-slate-900 text-base">MediaPipe Pose Estimation</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Extracts 33 3D body landmark coordinates at 30+ FPS directly from standard webcam feeds without specialized hardware.
-          </p>
-        </div>
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
-          <div class="text-indigo-600 text-lg"><i class="fa-solid fa-calculator"></i></div>
-          <h4 class="font-bold text-slate-900 text-base">Custom Jacobi SVD Solver</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Implemented a linear algebra Jacobi SVD solver to compute optimal rigid transformations (rotation &amp; translation) for mapping user skeletons onto ground-truth poses.
-          </p>
-        </div>
-        <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-2">
-          <div class="text-indigo-600 text-lg"><i class="fa-solid fa-bullseye"></i></div>
-          <h4 class="font-bold text-slate-900 text-base">Joint-Specific Visual Feedback</h4>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Calculates angular error bounds per joint, providing dynamic visual overlays and real-time posture correction cues on screen.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MEDIA PLACEHOLDERS -->
+    <!-- METHODOLOGY & SVD ALGORITHM SECTION -->
     <section class="space-y-6">
-      <h3 class="text-xl font-bold text-slate-900 border-b border-slate-200 pb-4">System Interface &amp; Demos</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-play text-3xl"></i>
+      <div class="border-b border-slate-200 pb-3">
+        <h3 class="text-2xl font-bold text-slate-900">Mathematical Formulation &amp; SVD Pipeline</h3>
+        <p class="text-slate-500 text-sm">Translating skeletal joint coordinates into scale-invariant matrix spaces for rigid alignment.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Card 1: Matrix Preprocessing -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-indigo-600"></i> Centralization &amp; Normalization
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            To isolate pure anatomical pose variation from camera distance and body size differences, both user and instructor coordinate matrices \(M\) are mean-centered and scaled via the Frobenius norm:
+          </p>
+          <div class="bg-slate-900 text-slate-100 font-mono text-xs p-3 rounded-lg overflow-x-auto text-center">
+            $$M_{\text{norm}} = \frac{M - \text{mean}(M)}{\|M - \text{mean}(M)\|_F}$$
           </div>
-          <div class="p-4"><h5 class="text-sm font-bold text-slate-900">Real-Time Pose Tracking Overlay</h5></div>
+          <p class="text-xs text-slate-500">
+            This guarantees that both user and instructor matrices have a Frobenius norm of exactly 1.0, enabling invariant cross-covariance calculation.
+          </p>
         </div>
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-chart-line text-3xl"></i>
+
+        <!-- Card 2: Custom Jacobi SVD Implementation -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-4">
+          <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-code text-indigo-600"></i> Custom Jacobi SVD vs NumPy
+          </h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            A custom iterative Jacobi SVD solver was engineered to calculate cross-covariance \(C = A^T B\) and solve for optimal rotation \(R = U \cdot V^T\).
+          </p>
+          <div class="bg-slate-900 text-emerald-400 font-mono text-[11px] p-3 rounded-lg overflow-x-auto leading-tight">
+            # Optimal Rotation Extraction<br>
+            C = user_matrix.T @ gt_matrix<br>
+            U, sigma, Vt = jacobi_svd(C)<br>
+            R = U @ Vt  <span class="text-slate-500"># Validated to 4 decimal places vs NumPy</span>
           </div>
-          <div class="p-4"><h5 class="text-sm font-bold text-slate-900">SVD Alignment Error Analysis</h5></div>
+          <p class="text-xs text-slate-500">
+            Operating on small \(2 \times 2\) or \(3 \times 3\) covariance matrices yields a constant computational runtime of \(\mathcal{O}(1)\) per frame.
+          </p>
         </div>
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-rectangle-ad text-3xl"></i>
+
+      </div>
+    </section>
+
+    <!-- GROUND TRUTH & HYBRID DEPTH SECTION (2-COLUMN LAYOUT) -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <h3 class="text-2xl font-bold text-slate-900">Ground Truth &amp; Hybrid 2D/3D Depth Resolution</h3>
+        <p class="text-slate-500 text-sm">Mitigating single-camera depth distortion by adapting dimension spaces based on pose orientation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Card 1: 3D Side-Facing Poses -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+          <div class="h-64 bg-slate-100 border-b border-slate-200 p-3 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
+            <img src="images/numerical/ground_truth_3d.jpg" alt="3D Coordinates Ground Truth for Side-Facing Poses" class="w-full h-full object-contain">
           </div>
-          <div class="p-4"><h5 class="text-sm font-bold text-slate-900">Joint Feedback UI Overlay</h5></div>
+          <div class="p-5 space-y-1">
+            <h5 class="text-base font-bold text-slate-900">3D Side-Facing Model</h5>
+            <p class="text-xs text-slate-500 leading-relaxed">Poses like <em>Cobra</em>, <em>Downward Dog</em>, and <em>Balancing Table</em> utilize full 3D coordinate space to accurately capture longitudinal joint displacements along the Z-axis.</p>
+          </div>
         </div>
+
+        <!-- Card 2: 2D Front-Facing Solution -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+          <div class="h-64 bg-slate-100 border-b border-slate-200 p-3 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
+            <img src="images/numerical/ground_truth_2d.jpg" alt="2D Ground Truth for Front-Facing Poses" class="w-full h-full object-contain">
+          </div>
+          <div class="p-5 space-y-1">
+            <h5 class="text-base font-bold text-slate-900">2D Front-Facing Resolution</h5>
+            <p class="text-xs text-slate-500 leading-relaxed">Flattening front-facing poses (e.g., <em>Tree</em>, <em>Triangle</em>) to 2D matrices eliminates unreliable longitudinal Z-depth noise caused by single-lens webcam limitations.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE TESTING & FEEDBACK RESULTS SECTION -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <h3 class="text-2xl font-bold text-slate-900">Real-Time Evaluation &amp; Digital Coach Results</h3>
+        <p class="text-slate-500 text-sm">Live validation testing featuring real-time MediaPipe joint tracking, SVD alignment scoring, and corrective feedback.</p>
+      </div>
+
+      <!-- 2-COLUMN SHOWCASE FOR YOUR LIVE SCREENSHOTS -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Live Screenshot 1: Downward Dog -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+          <div class="h-64 bg-slate-900 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
+            <img src="images/numerical/downward_dog_live.jpg" alt="Downward-Facing Dog Live Posture Evaluation" class="w-full h-full object-contain rounded-lg">
+          </div>
+          <div class="p-4 space-y-1">
+            <div class="flex items-center justify-between">
+              <h5 class="text-sm font-bold text-slate-900">Downward-Facing Dog Pose</h5>
+              <span class="text-[10px] font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200 font-bold">Score: 4/5</span>
+            </div>
+            <p class="text-xs text-slate-500">Evaluated using 3D SVD alignment space. Targeted tip generated: <em>"Extend your right shoulder slightly"</em>.</p>
+          </div>
+        </div>
+
+        <!-- Live Screenshot 2: Tree Pose -->
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
+          <div class="h-64 bg-slate-900 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
+            <img src="images/numerical/tree_pose_live.jpg" alt="Tree Pose Live Posture Evaluation" class="w-full h-full object-contain rounded-lg">
+          </div>
+          <div class="p-4 space-y-1">
+            <div class="flex items-center justify-between">
+              <h5 class="text-sm font-bold text-slate-900">Tree Pose</h5>
+              <span class="text-[10px] font-mono bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200 font-bold">Score: 4/5</span>
+            </div>
+            <p class="text-xs text-slate-500">Evaluated using 2D hybrid depth space. Targeted tip generated: <em>"Bend your right knee greatly"</em>.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- System Summary Cards -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm grid grid-cols-1 sm:grid-cols-3 gap-6 text-xs">
+        <div class="space-y-1">
+          <span class="font-bold text-slate-900 block text-sm">1. Target Joint Isolation</span>
+          <p class="text-slate-600">Calculates 8 biomechanical joint angles via vector dot products, isolating the single joint exhibiting the largest angular deviation.</p>
+        </div>
+        <div class="space-y-1">
+          <span class="font-bold text-slate-900 block text-sm">2. Actionable Coaching</span>
+          <p class="text-slate-600">Maps error magnitudes to severity qualifiers: <em>Slightly</em> (&lt;30°), <em>Moderately</em> (30–45°), and <em>Greatly</em> (&gt;45°).</p>
+        </div>
+        <div class="space-y-1">
+          <span class="font-bold text-slate-900 block text-sm">3. Pose Stability Gate</span>
+          <p class="text-slate-600">Requires a stationary hold threshold over a 5-second dwell time before calculating final score and frame capture.</p>
+        </div>
+      </div>
+    </section>
+    <!-- LIMITATIONS & FUTURE IMPROVEMENTS SECTION -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <h3 class="text-2xl font-bold text-slate-900">Limitations &amp; Future Scope</h3>
+        <p class="text-slate-500 text-sm">Identifying system boundary conditions and potential engineering iterations.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <!-- Card 1: System Limitations -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-3">
+          <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500"></i> Current Limitations
+          </h4>
+          <ul class="space-y-2 text-xs text-slate-600 leading-relaxed list-disc list-inside">
+            <li><strong>Single-Camera Depth Ambiguity:</strong> Monocular Z-axis estimation in MediaPipe can introduce minor noise during deep 3D torsos twisting.</li>
+            <li><strong>Occlusion Sensitivity:</strong> Self-occluded limbs (e.g., overlapping arms during tight twists) can briefly drop landmark tracking confidence.</li>
+            <li><strong>Static Ground Truth:</strong> Relies on pre-recorded reference pose vectors rather than dynamic multi-angle instructor templates.</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Future Improvements -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-3">
+          <h4 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-rocket text-indigo-600"></i> Future Roadmap
+          </h4>
+          <ul class="space-y-2 text-xs text-slate-600 leading-relaxed list-disc list-inside">
+            <li><strong>Stereo / Multi-View Fusion:</strong> Integrate dual-camera inputs or depth-sensing (RGB-D) hardware to eliminate 2D/3D mode toggling.</li>
+            <li><strong>Dynamic Tempo Tracking:</strong> Expand from static pose holding to continuous flow sequence alignment using Dynamic Time Warping (DTW).</li>
+            <li><strong>Adaptive Tolerance Scaling:</strong> Adjust angular scoring thresholds dynamically based on user flexibility levels and skill tiers.</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
   </main>
+
+  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-slate-500 text-sm bg-white">
+    Jenny Choung Portfolio — Real-Time Posture Alignment &amp; Kinematics
+  </footer>
+
+  <!-- JAVASCRIPT: CIRCLE FLOWCHART HOVER & LIGHTBOX MODAL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      /* --- 1. CIRCLE FLOWCHART HOVER INTERACTION --- */
+      const nodes = document.querySelectorAll('.flow-node');
+      const nodeTitle = document.getElementById('nodeTitle');
+      const nodeTag = document.getElementById('nodeTag');
+      const nodeDesc = document.getElementById('nodeDesc');
+
+      nodes.forEach(node => {
+        node.addEventListener('mouseenter', () => {
+          nodes.forEach(n => n.classList.remove('active-node'));
+          node.classList.add('active-node');
+
+          const title = node.getAttribute('data-title');
+          const tag = node.getAttribute('data-tag');
+          const desc = node.getAttribute('data-desc');
+
+          if (title) nodeTitle.textContent = title;
+          if (tag) nodeTag.textContent = tag;
+          if (desc) nodeDesc.textContent = desc;
+        });
+      });
+
+      /* --- 2. LIGHTBOX MODAL INTERACTION --- */
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const closeModalBtn = document.getElementById('closeModal');
+
+      // Attach lightbox handler to all images inside main tag
+      document.querySelectorAll('main img').forEach(img => {
+        img.addEventListener('click', () => {
+          modalImg.src = img.src;
+          modalCaption.textContent = img.alt || 'Project Detail View';
+          modal.classList.remove('hidden');
+        });
+      });
+
+      // Close modal on 'X' button
+      closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+
+      // Close modal when clicking dark backdrop
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+        }
+      });
+
+      // Close modal on 'Escape' key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+
+  <!-- MathJax for Rendering Mathematical Formulas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 </body>
 </html>

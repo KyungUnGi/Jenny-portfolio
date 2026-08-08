@@ -1,145 +1,1312 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design &amp; Fabrication Portfolio — Jenny's Portfolio</title>
+  <title>Design &amp; Fabrication Portfolio — 24-672 DIY</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Lightbox Modal Transitions */
+    #imageModal {
+      transition: opacity 0.25s ease-in-out;
+    }
+    #imageModal.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #imageModal:not(.hidden) {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Scroll Target Offset so Sticky Header doesn't cover section titles */
+    section[id^="ps"] {
+      scroll-margin-top: 130px;
+    }
+
+    /* Hide Scrollbar for Tab Bar on Mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+  <!-- LIGHTBOX MODAL OVERLAY -->
+  <div id="imageModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden flex flex-col items-center p-4">
+      
+      <!-- Close Button (X) -->
+      <button id="closeModal" class="absolute top-3 right-3 text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold transition z-10 focus:outline-none">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Enlarged Image Display -->
+      <div class="w-full h-full flex items-center justify-center overflow-auto p-2">
+        <img id="modalImg" src="" alt="Enlarged View" class="max-h-[80vh] max-w-full object-contain rounded-lg">
+      </div>
+
+      <!-- Caption -->
+      <p id="modalCaption" class="text-xs sm:text-sm text-slate-600 font-medium pt-3 text-center border-t border-slate-100 w-full mt-2"></p>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-40 shadow-sm">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="text-slate-600 hover:text-slate-900 transition flex items-center gap-2 text-sm font-semibold">
-        <i class="fa-solid fa-arrow-left"></i> Back to Home
+      <a href="index.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-amber-600 text-sm font-semibold transition">
+        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
       </a>
-      <span class="text-xs font-bold text-amber-700 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-        24-672 DIY Design &amp; Fabrication (2026)
+      <span class="text-xs font-mono font-bold bg-amber-50 text-amber-700 px-3 py-1 rounded-full border border-amber-200">
+        CMU 24-672 Design &amp; Fabrication
       </span>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 space-y-10">
-
-    <!-- HERO -->
-    <section class="bg-white border border-slate-200 p-8 sm:p-10 rounded-3xl shadow-sm space-y-4">
-      <div class="inline-flex items-center space-x-2 bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-xs font-bold">
-        <i class="fa-solid fa-hammer"></i>
-        <span>Physical Prototyping Showcase • 6 Projects</span>
+  <!-- HERO SECTION -->
+  <div class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-8 space-y-3">
+      <div class="inline-flex items-center gap-2 text-xs font-bold text-amber-600 uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-md border border-amber-200">
+        DIY Design &amp; Rapid Prototyping
       </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900">
-        DIY Design &amp; Fabrication Series
-      </h1>
-      <p class="text-slate-600 text-base sm:text-lg max-w-3xl leading-relaxed">
-        A multi-project series applying end-to-end rapid fabrication workflows to translate CAD concepts into physical functional prototypes using diverse shop machinery and techniques.
-      </p>
-      <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-amber-800">
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Laser Cutting</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Heat-Formed Acrylic</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Silicone Molding</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Resin Casting</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Foam &amp; Clay Mockups</span>
-        <span class="bg-slate-100 px-2.5 py-1 rounded border border-slate-200">SolidWorks / Fusion</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Design &amp; Fabrication Series</h1>
+      <p class="text-slate-600 text-sm sm:text-base">A 5-part engineering exploration into material selection, laser cutting, thermoforming, tolerance fitting, and rapid prototyping.</p>
+    </div>
+  </div>
+
+  <!-- STICKY CALENDAR / INDEX TAB NAVIGATION BAR -->
+  <div class="sticky top-[61px] z-30 bg-slate-100/90 backdrop-blur-md border-b border-slate-200 pt-3">
+    <div class="max-w-6xl mx-auto px-6 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+      
+      <!-- Tab 1: PS1 -->
+      <a href="#ps1" class="tab-btn active-tab flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-amber-500 bg-white text-slate-900 shadow-sm shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-amber-500"></span>
+        PS1: Coffee Cup
+      </a>
+
+      <!-- Tab 2: PS2 -->
+      <a href="#ps2" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS2: Transforming Takeout
+      </a>
+
+      <!-- Tab 3: PS3 -->
+      <a href="#ps3" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS3: The Desk Mount Dilemma
+      </a>
+
+      <!-- Tab 4: PS4 -->
+      <a href="#ps4" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS4: The Molding Mystery
+      </a>
+
+      <!-- Tab 5: PS5 -->
+      <a href="#ps5" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS5: Mastering Mockups
+      </a>
+
+      <!-- Tab 6: PS6 -->
+      <a href="#ps6" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS6: Sketches and Website
+      </a>
+
+      <!-- Tab 7: PS7 -->
+      <a href="#ps7" class="tab-btn flex items-center gap-2 px-4 py-2.5 rounded-t-xl text-xs font-bold font-mono transition border-t-2 border-x border-transparent bg-slate-200/70 text-slate-600 hover:bg-slate-200 hover:text-slate-900 shrink-0">
+        <span class="tab-dot w-2 h-2 rounded-full bg-slate-400"></span>
+        PS7: Final Fun, 
+      </a>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-6 py-10 space-y-16">
+
+    <!-- PROBLEM SET 1 SECTION -->
+    <section id="ps1" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">Problem Set 1</span>
+          <span class="text-xs text-slate-400 font-mono">CAD Modeling • Laser Cutting • Thermoforming</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Cuplower: Organic Floral Acrylic Holder</h2>
+        <p class="text-sm text-slate-600">Designed under Moody Judy Inc., Cuplower integrates natural floral geometry with functional thermal isolation for paper cups, using 2D SolidWorks modeling, Epilog laser profiling, and manual heat bending.</p>
+      </div>
+
+      <!-- Process Breakdown Grid (5 Stages) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+        <!-- Stage 1: Ideation & Sketching -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center text-xs font-bold">1</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Concept Sketches</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Explored floral and organic handle geometries to combine ergonomic grip with aesthetic appeal.
+            </p>
+          </div>
+          <div class="h-36 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+            <img src="images/ps1/Choung_Jenny_ps1_203_process.png" alt="Initial Concept Notebook Sketches" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 2: Physical Paper Trace -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center text-xs font-bold">2</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Prototyping &amp; Sizing</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Traced 1:1 paper cutouts to verify the inner ring taper diameter ($2.31\text{ in}$) against cup dimensions.
+            </p>
+          </div>
+          <div class="h-36 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+            <img src="images/ps1/Choung_Jenny_ps1_209_process.png" alt="1:1 Paper Trace Verification" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 3: SolidWorks CAD Modeling -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center text-xs font-bold">3</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">SolidWorks Parametric</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Modeled the 2D vector layout in SolidWorks, applying tangent arc relations for the petal edges.
+            </p>
+          </div>
+          <div class="h-36 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+            <img src="images/ps1/Choung_Jenny_ps1_211_process.png" alt="SolidWorks 2D Sketch Layout" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 4: Epilog DXF Laser Cut -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center text-xs font-bold">4</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Epilog DXF Cut</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Exported `.DXF` file to the Epilog Laser cutter to produce the clean 2D orange acrylic cutout.
+            </p>
+          </div>
+          <div class="h-36 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+            <img src="images/ps1/Choung_Jenny_ps1_210_process.png" alt="Epilog Laser Cut Acrylic Sheet" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 5: Thermoforming & Final Product -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-amber-100 text-amber-700 rounded-lg flex items-center justify-center text-xs font-bold">5</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Heat Bending</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Softened the handle stem with a heat gun, forming a smooth ergonomic loop and thumb support.
+            </p>
+          </div>
+          <div class="h-36 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+            <video 
+              src="images/ps1/Choung_Jenny_ps1_101_product.mp4" 
+              autoplay 
+              loop 
+              muted 
+              playsinline 
+              class="w-full h-full object-cover">
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Product Showcase & Promotional Presentation -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Promotional Flyer Card -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-700">Moody Judy Inc. Presentation</span>
+            <h4 class="text-base font-bold text-slate-900">Product Flyer &amp; Specs</h4>
+            <p class="text-xs text-slate-600">A compact, minimalist cup holder designed around floral aesthetic motifs to provide thermal protection and ergonomic utility.</p>
+          </div>
+          <div class="w-full aspect-[1/1.3] bg-white rounded-xl overflow-hidden border border-rose-200/80 shadow-inner group cursor-pointer">
+            <img src="images/ps1/Choung_Jenny_ps1_000_flyer.png" alt="Cuplower Product Flyer" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Product Gallery (2 Columns) -->
+        <div class="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3">
+          <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider font-mono">Final Assembly &amp; Form Details</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div class="h-90 bg-slate-200 rounded-lg overflow-hidden border border-slate-300 cursor-pointer group">
+              <img src="images/ps1/Choung_Jenny_ps1_103_product.png" alt="Cuplower Formed Acrylic Ring Top View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="h-90 bg-slate-200 rounded-lg overflow-hidden border border-slate-300 cursor-pointer group">
+              <img src="images/ps1/ps1_product1.png" alt="Cuplower Bottom Angle Assembly" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Engineering Takeaways / Key Highlights -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Key Fabrication Insights</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Parametric Sizing:</span>
+            Using SolidWorks smart dimensions ensured the $2.31\text{ in}$ inner diameter accounted for paper cup taper angles for a friction fit without sliding.
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">DXF Kerf Offset:</span>
+            Exporting direct DXF profiles allowed the Epilog laser to cut smooth, flame-polished petal radii without manual deburring.
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Thermal Ductility:</span>
+            Controlled heat gun application enabled progressive manual bending along the handle neck without causing acrylic stress-bleaching.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEM SET 2 SECTION -->
+    <section id="ps2" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 bg-rose-50 px-2.5 py-1 rounded border border-rose-200">Problem Set 2</span>
+          <span class="text-xs text-slate-400 font-mono">Canson Mi Teintes • Laser Scoring • Sheet Enclosure</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">SauceWing: Transformable Fry Sleeve</h2>
+        <p class="text-sm text-slate-600">A paperboard fry holder featuring integrated fold-out wings designed to securely hold condiment packets on the go without requiring a table.</p>
+      </div>
+
+      <!-- Process Breakdown Grid (4 Stages) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+        <!-- Stage 1: Conceptual Exploration -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-rose-100 text-rose-700 rounded-lg flex items-center justify-center text-xs font-bold">1</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Concept Ideation</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Explored initial form concepts ranging from pop-up dispensers to fold-out tray attachments for condiments.
+            </p>
+          </div>
+          <div class="h-44 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 flex items-center justify-center cursor-pointer group">
+            <img src="images/ps2/Choung_Jenny_ps2_201_process.png" alt="Initial Concept Sketches" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 2: Net Pattern Layout -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-rose-100 text-rose-700 rounded-lg flex items-center justify-center text-xs font-bold">2</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Pattern &amp; Wing Design</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Developed the 2D unrolled flat net layout with precise fold-out retention wings for holding ketchup packets.
+            </p>
+          </div>
+          <div class="h-44 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 flex items-center justify-center cursor-pointer group">
+            <img src="images/ps2/Choung_Jenny_ps2_203_process.png" alt="Flat Net Pattern Sketch with Dimensions" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 3: Paper Mockup Validation -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-rose-100 text-rose-700 rounded-lg flex items-center justify-center text-xs font-bold">3</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Paper Prototyping</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Constructed physical cardstock mockups to verify fold tolerances, seam overlaps, and pocket volume.
+            </p>
+          </div>
+          <div class="h-44 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 flex items-center justify-center cursor-pointer group">
+            <img src="images/ps2/Choung_Jenny_ps2_207_process.png" alt="3D Paper Prototype Folded Seams" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Stage 4: CAD Vector File Preparation -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1.5">
+            <div class="w-7 h-7 bg-rose-100 text-rose-700 rounded-lg flex items-center justify-center text-xs font-bold">4</div>
+            <h3 class="font-bold text-slate-900 text-xs uppercase tracking-wide">Laser DXF Vectoring</h3>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Prepared 2D vector geometry for score lines, outer cut paths, and L-shaped packet tabs for laser cutting.
+            </p>
+          </div>
+          <div class="h-44 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 flex items-center justify-center cursor-pointer group">
+            <img src="images/ps2/Choung_Jenny_ps2_210_process.png" alt="Fries Sleeve Vector Geometry in CAD" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Showcase & Flyer Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Flyer Image Showcase -->
+        <div class="bg-rose-50/70 border border-rose-200 rounded-2xl p-5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-rose-700">Promotional Flyer</span>
+              <span class="text-[10px] font-mono text-slate-500">10cm × 4cm × 16cm</span>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">SauceWing Poster</h4>
+            <p class="text-xs text-slate-600">Material: Canson Mi Teintes Grey • Features fold-out packet holders for hands-free snacking.</p>
+          </div>
+
+          <!-- Flyer Graphic -->
+          <div class="w-full aspect-[1/1.3] bg-white rounded-xl overflow-hidden border border-rose-200/80 shadow-inner group cursor-pointer">
+            <img src="images/ps2/Choung_Jenny_ps2_000_flyer.png" alt="SauceWing Promotional Flyer" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Product Photo Gallery (2 Columns) -->
+        <div class="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider font-mono mb-1">Final Physical Fabrication</h4>
+            <p class="text-xs text-slate-600">Laser cut and scored on Canson Mi Teintes grey paperboard, featuring friction tabs and dynamic wing supports.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Unloaded Prototype -->
+            <div class="space-y-2">
+              <div class="h-90 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+                <img src="images/ps2/Choung_Jenny_ps2_101_product.png" alt="SauceWing Unloaded Prototype Front View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <p class="text-[11px] text-slate-500 font-mono text-center">Formed Sleeve with Recessed Packet Cuts</p>
+            </div>
+
+            <!-- In-Use Prototype with Fries & Ketchup -->
+            <div class="space-y-2">
+              <div class="h-90 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+                <img src="images/ps2/Choung_Jenny_ps2_102_product.png" alt="SauceWing Loaded with Fries and Heinz Ketchup" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <p class="text-[11px] text-slate-500 font-mono text-center">Functional Demo with Ketchup Packet Engagement</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Technical Insights -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-rose-400 uppercase tracking-wider">Engineering &amp; Fabrication Takeaways</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Fold-Out Wing Mechanism:</span>
+            Integrated L-profile cuts that push outward to create cantilevered supports capable of cradling standard condiment packets.
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Precision Vector Scoring:</span>
+            Calibrated low-power laser scoring to crease paperboard cleanly without tearing along primary stress folds.
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Self-Locking Seams:</span>
+            Utilized friction tabs and slot interlocks to form a rigid 3D container without needing external adhesives.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEM SET 3 SECTION -->
+    <section id="ps3" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">Problem Set 3</span>
+          <span class="text-xs text-slate-400 font-mono">ShiModern Mounts • Thermoformed Acrylic • Adjustable Friction Joint</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">PowerStand: Adjustable Wireless Charger Mount</h2>
+        <p class="text-sm text-slate-600">An acrylic desktop phone stand tailored for IKEA wireless charger integration, featuring heat-formed linkage arms and adjustable viewing angles[cite: 1, 2].</p>
+      </div>
+
+      <!-- 1. IDEATION & SKETCHBOOK PHASE -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600">Stage 1 • Ideation &amp; Sizing</span>
+          <h3 class="text-lg font-bold text-slate-900">Concept Exploration &amp; Hand Sketches</h3>
+          <p class="text-xs text-slate-600">Initial sketchbook ideation covering hinge mechanics, dimensional math for acrylic bend radii, and blueprint layouts before CAD execution[cite: 1, 2].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Concept Ideation -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_201_process.png" alt="Hinge & Mount Concept Sketches" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Concept Ideation</span>
+              <p class="text-[11px] text-slate-500">Mount forms, articulated arms, and puck housing</p>
+            </div>
+          </div>
+
+          <!-- Radius & Joint Math -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_202_process.png" alt="Joint & Radius Calculations" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Mechanical Math</span>
+              <p class="text-[11px] text-slate-500">Acrylic bend radii, shoulder bolt &amp; nut clearances</p>
+            </div>
+          </div>
+
+          <!-- Dimensioned Blueprint -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_204_process.png" alt="Dimensioned Blueprint Sketches" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Dimensioned Layout</span>
+              <p class="text-[11px] text-slate-500">Millimeter blueprint mapping for 2D laser vectors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. SOLIDWORKS CAD SKETCHES -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600">Stage 2 • Digital Modeling</span>
+          <h3 class="text-lg font-bold text-slate-900">SolidWorks Parametric CAD Layouts</h3>
+          <p class="text-xs text-slate-600">Translating hand dimensions into precise 2D vector sketch profiles for laser cutting[cite: 1, 2].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Top Puck Plate -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-48 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_205_process.png" alt="SolidWorks Top Plate CAD Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">672_ps3_top</span>
+              <p class="text-[11px] text-slate-500">Integrated charger ring &amp; hinge mounts</p>
+            </div>
+          </div>
+
+          <!-- Linkage Arms -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-48 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_206_process.png" alt="SolidWorks Link Arm CAD Sketch" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">672_ps3_arm</span>
+              <p class="text-[11px] text-slate-500">Dual articulated link supports</p>
+            </div>
+          </div>
+
+          <!-- Base Plate -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-48 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_207_process.png" alt="SolidWorks Base Plate CAD Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">672_ps3_base</span>
+              <p class="text-[11px] text-slate-500">Semi-circular desktop footprint</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. JOINT MECHANISM (PHOTO & VIDEO DEMO) -->
+      <div class="bg-purple-50/50 border border-purple-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-700">Stage 3 • Thermoforming Mechanics</span>
+          <h3 class="text-lg font-bold text-slate-900">Adjustable Friction Joint &amp; Heat-Bending</h3>
+          <p class="text-xs text-slate-600">Testing thermoformed acrylic loops bent around bolt mandrels to verify hinge pivot friction and mechanical load hold[cite: 1, 2].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <!-- Joint Photo -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-purple-200 shadow-sm cursor-pointer group">
+              <img src="images/ps3/Choung_Jenny_ps3_208_process.png" alt="Thermoformed Friction Hinge Subassembly" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Formed Acrylic Loop Joint Subassembly</p>
+          </div>
+
+          <!-- Joint Video -->
+          <div class="space-y-2">
+            <div class="h-64 bg-black rounded-xl overflow-hidden border border-purple-200 shadow-sm flex items-center justify-center">
+              <video controls class="w-full h-full object-contain">
+                <source src="images/ps3/Choung_Jenny_ps3_209_process.MOV" type="video/mp4">
+                Your browser does not support video playback.
+              </video>
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Friction Resistance &amp; Angle Articulation Test (.MOV)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. FLYER & FINAL PRODUCT SHOWCASE -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- PNG Flyer Container -->
+        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-3 flex flex-col justify-between">
+          <div class="space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-700">Presentation Flyer</span>
+              <a href="images/ps3/Choung_Jenny_ps3_000_flyer.png" target="_blank" class="text-[11px] text-purple-700 hover:text-purple-900 font-bold flex items-center gap-1">
+                View High-Res <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+              </a>
+            </div>
+            <h4 class="text-base font-bold text-slate-900">PowerStand Product Flyer</h4>
+            <p class="text-xs text-slate-600">Product presentation poster for ShiModern Mounts[cite: 2].</p>
+          </div>
+
+          <!-- Embedded PNG Flyer -->
+          <div class="w-full bg-white rounded-xl overflow-hidden border border-slate-300 shadow-sm cursor-pointer group">
+            <img src="images/ps3/Choung_Jenny_ps3_000_flyer.png" alt="PowerStand Product Flyer Image" class="w-full h-auto object-contain group-hover:scale-102 transition duration-300">
+          </div>
+        </div>
+
+        <!-- Product Photo Gallery -->
+        <div class="lg:col-span-2 bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider font-mono mb-1">Final Assembly &amp; Desktop Testing</h4>
+            <p class="text-xs text-slate-600">Finished white acrylic mount integrating the wireless charger puck and supporting phone holding angles[cite: 1, 2].</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Assembled Stand -->
+            <div class="space-y-2">
+              <div class="h-90 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+                <img src="images/ps3/Choung_Jenny_ps3_101_product.png" alt="PowerStand Assembled Acrylic Wireless Mount" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <p class="text-[11px] text-slate-500 font-mono text-center">Assembled Mount with Charger Puck</p>
+            </div>
+
+            <!-- In-Use Phone Test -->
+            <div class="space-y-2">
+              <div class="h-90 bg-slate-200 rounded-xl overflow-hidden border border-slate-300 cursor-pointer group">
+                <img src="images/ps3/iphone.png" alt="PowerStand Supporting iPhone at Desktop" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              </div>
+              <p class="text-[11px] text-slate-500 font-mono text-center">In-Use Desktop Angle Testing</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 5. TECHNICAL INSIGHTS -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-purple-400 uppercase tracking-wider">Engineering &amp; Fabrication Insights</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Thermoformed Acrylic Arms:</span>
+            Heat-gun formed dual acrylic links around standard bolt mandrels to form continuous, structural loop ends[cite: 1].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Adjustable Friction Hinges:</span>
+            Utilized threaded bolts with nylon locknuts to tune the precise pivot resistance needed to support modern smartphones without sagging[cite: 1, 2].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Targeted Device Integration:</span>
+            Laser-cut circular press-fit seat specifically contoured for flush housing of an IKEA wireless charging puck and cable routing[cite: 2].
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEM SET 4 SECTION -->
+    <section id="ps4" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">Problem Set 4</span>
+          <span class="text-xs text-slate-400 font-mono">Two-Part Silicone Tooling • MoldMax 40 • EpoxACast Resin</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">The Molding Mystery: Two-Part Silicone Mold &amp; Resin Cast</h2>
+        <p class="text-sm text-slate-600">Soft tooling process utilizing a clay bed, alignment registration keys, a foam-core mold box, and two-part RTV silicone to duplicate an acrylic structural part in clear resin[cite: 3].</p>
+      </div>
+
+      <!-- 1. IDEATION & MOLD DESIGN PHASE -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600">Stage 1 • Mold Architecture</span>
+          <h3 class="text-lg font-bold text-slate-900">Two-Part Mold Strategy &amp; Pour Sprue Planning</h3>
+          <p class="text-xs text-slate-600">Planning the parting line elevation in clay, registration key positions, and vertical resin feed channel[cite: 3].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Parting Line Sketch -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_201_process.png" alt="Parting Line and Clay Bed Strategy Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Clay Bed &amp; Registration Strategy</span>
+              <p class="text-[11px] text-slate-500">Establishing the 50/50 parting line depth and key hole locations[cite: 3]</p>
+            </div>
+          </div>
+
+          <!-- Resin Pour Tube Sketch -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_202_process.png" alt="Two-Part Mold and Resin Pour Tube Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Sprue &amp; Vent Assembly</span>
+              <p class="text-[11px] text-slate-500">Designating top-down resin feed channel to minimize air pockets[cite: 3]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. SILICONE MOLD FABRICATION PROCESS -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600">Stage 2 • Tooling &amp; Pouring</span>
+          <h3 class="text-lg font-bold text-slate-900">Clay Bed Bedding, Mold Box &amp; MoldMax 40 Pour</h3>
+          <p class="text-xs text-slate-600">Building the foam-core mold container, mixing RTV silicone, pouring Side A, and placing the central resin channel tube[cite: 3].</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+          <!-- Step A: Clay Bed & Pattern -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_203_process.png" alt="Clay Bed and Part Bedding in Mold Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">1. Clay Bed &amp; Alignment Keys</span>
+              <p class="text-[11px] text-slate-500">Embedded object half-deep in clay with circular indentation keys[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Step B: Mixing MoldMax 40 -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_204_process.png" alt="Mixing RTV Silicone MoldMax 40" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">2. Silicone Preparation</span>
+              <p class="text-[11px] text-slate-500">Thoroughly mixing two-part RTV silicone (MoldMax 40) base and catalyst[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Step C: Pouring Side A -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_205_process.png" alt="Pouring Silicone into Mold Box" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">3. Side A Silicone Pour</span>
+              <p class="text-[11px] text-slate-500">High-pour technique into the lowest point of the foam box to avoid bubbles[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Step D: First Half Cured -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_206_process.png" alt="Cured First Half of Silicone Mold" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">4. Inverted First Half</span>
+              <p class="text-[11px] text-slate-500">Removed clay, applied release agent, and prepared exposed face[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Step E: Inserting Feed Tube -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_207_process.png" alt="Inserting Resin Pour Channel Tube" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">5. Feed Channel Integration</span>
+              <p class="text-[11px] text-slate-500">Mounted vertical pour tube directly onto the main part body[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Step F: Side B Pour & Rubber Bands -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_208_process.png" alt="Side B Silicone Mold Pour with Clamps" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">6. Side B Pour &amp; Setup</span>
+              <p class="text-[11px] text-slate-500">Secured box perimeter with bands during full curing stage[cite: 3].</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 3. FINAL RESIN CAST SHOWCASE -->
+      <div class="bg-emerald-50/50 border border-emerald-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-700">Stage 3 • Demolding &amp; Finish</span>
+          <h3 class="text-lg font-bold text-slate-900">Demolded Solid Resin Part</h3>
+          <p class="text-xs text-slate-600">Finished solid resin replica cast inside the custom two-part silicone tool[cite: 3].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <!-- Cast Part on Workbench -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-emerald-200 shadow-sm cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_101_product.png" alt="Demolded Resin Part on Workbench" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Resin Duplicate (Parting Line &amp; Feature Detail)</p>
+          </div>
+
+          <!-- Cast Part in Hand -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-emerald-200 shadow-sm cursor-pointer group">
+              <img src="images/ps4/Choung_Jenny_ps4_102_product.png" alt="Cast Resin Part Scale Reference in Hand" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Hand Scale &amp; Structural Inspection</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. TECHNICAL INSIGHTS -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-emerald-400 uppercase tracking-wider">Molding &amp; Casting Technical Takeaways</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Parting Line Control:</span>
+            Accurately leveling the clay bed prevented undercut lockups and ensured smooth part removal from both silicone halves[cite: 3].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Mold Release Application:</span>
+            Thorough aerosol release coating prevented the second silicone pour from bonding permanently to the cured first half[cite: 3].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Resin Hydrostatic Head:</span>
+            Using an extended straw feed created enough liquid pressure to push resin into tight internal radiuses without void entrapment[cite: 3].
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEM SET 5 SECTION -->
+    <section id="ps5" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">Problem Set 5</span>
+          <span class="text-xs text-slate-400 font-mono">Ergonomic Water Bottle • Polyurethane Foam Core • Chavant Styling Clay</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Mastering Mockups: Ergonomic Water Bottle Form Study</h2>
+        <p class="text-sm text-slate-600">Full-scale physical mockup combining a laser-cut paper shell, expanding polyurethane foam core, and hand-sculpted Chavant styling clay skin[cite: 4].</p>
+      </div>
+
+      <!-- 1. IDEATION & HIGH-FIDELITY SKETCHES -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600">Stage 1 • Ideation &amp; High-Fi Sketches</span>
+          <h3 class="text-lg font-bold text-slate-900">Bottle Geometry &amp; Shaded Presentation Sketches</h3>
+          <p class="text-xs text-slate-600">Sketching cylindrical primitives, unrolled net patterns, and high-fidelity shaded renderings showing hand interaction and split-material construction[cite: 4].</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Construction Sketch -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_206_process.png" alt="Bottle Geometry Perspective Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Primitive Layout</span>
+              <p class="text-[11px] text-slate-500">Central axis &amp; section rings[cite: 4]</p>
+            </div>
+          </div>
+
+          <!-- Unfolded Pattern Math -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_207_process.png" alt="Unfolded Paper Pattern Layout" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Pattern Net Math</span>
+              <p class="text-[11px] text-slate-500">Unfolded cone &amp; cylinder nets[cite: 4]</p>
+            </div>
+          </div>
+
+          <!-- High-Fi Shaded Sketch -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_302_sketch.png" alt="High-Fidelity Shaded Bottle Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">High-Fi Form Sketch</span>
+              <p class="text-[11px] text-slate-500">Valued shading &amp; core/skin split[cite: 4]</p>
+            </div>
+          </div>
+
+          <!-- Hand Interaction Sketch -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-52 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_301_sketch.png" alt="Hand Interaction Shaded Sketch" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800">Hand Interaction</span>
+              <p class="text-[11px] text-slate-500">Ergonomic grip study with shading[cite: 4]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. CORE FABRICATION (PAPER SHELL & FOAM EXPANSION) -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-600">Stage 2 • Core Fabrication</span>
+          <h3 class="text-lg font-bold text-slate-900">Laser Cutting, Paper Assembly &amp; Foam Expansion</h3>
+          <p class="text-xs text-slate-600">Laser cutting paper nets, assembling 3D volumetric shells, and filling them with expanding polyurethane foam[cite: 4].</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <!-- Laser Cutting -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_201_process.png" alt="Laser Cutting Paper Net Pattern" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">1. Vector Laser Cutting</span>
+              <p class="text-[11px] text-slate-500">Laser-cut paper nets on grid bed[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- Paper Assembly -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_202_process.png" alt="Assembled Paper Shell Modules" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">2. Paper Shell Assembly</span>
+              <p class="text-[11px] text-slate-500">Taped modular paper shells[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- Foam Expansion Cylinder -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_203_process.png" alt="Cylinder Polyurethane Foam Expansion" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">3. Main Body Foam Pour</span>
+              <p class="text-[11px] text-slate-500">Expanding PU foam in cylinder core[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- Foam Expansion Cones -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-44 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_204_process.png" alt="Neck and Cap Foam Expansion" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">4. Neck &amp; Cap Expansion</span>
+              <p class="text-[11px] text-slate-500">Expanding foam fills in paper cones[cite: 4].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. CLAY SCULPTING & FINAL PRODUCT SHOWCASE -->
+      <div class="bg-amber-50/50 border border-amber-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-amber-700">Stage 3 • Clay Sculpting &amp; Dual-Surface Finish</span>
+          <h3 class="text-lg font-bold text-slate-900">Styling Clay Application, Detailing &amp; Final Mockup</h3>
+          <p class="text-xs text-slate-600">Warming Chavant styling clay, applying the skin layer, and carving fine ergonomic ribbing while leaving the paper/foam core exposed on the reverse side[cite: 4].</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
+          <!-- Clay Prep -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-amber-200 shadow-sm cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_205_process.png" alt="Applying Warmed Clay Skin on Workbench" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Warmed Clay Tray &amp; Scraping[cite: 4]</p>
+          </div>
+
+          <!-- Clay Side View 1 -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-amber-200 shadow-sm cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_209_process.png" alt="Clay Sculpted Side showing Ergonomic Ridges" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Sculpted Clay Skin Details[cite: 4]</p>
+          </div>
+
+          <!-- Paper/Foam Core Side View -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-amber-200 shadow-sm cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_210_process.png" alt="Exposed Foam and Paper Shell Core" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Exposed Core Material Split[cite: 4]</p>
+          </div>
+
+          <!-- Final Product Held in Hand -->
+          <div class="space-y-2">
+            <div class="h-64 bg-white rounded-xl overflow-hidden border border-amber-200 shadow-sm cursor-pointer group">
+              <img src="images/ps5/Choung_Jenny_ps05_101_product.png" alt="Completed Water Bottle Mockup Held in Hand" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Completed Dual-Surface Mockup[cite: 4]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. TECHNICAL INSIGHTS -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-amber-400 uppercase tracking-wider">Mockup Prototyping Technical Takeaways</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Volumetric Foam Core:</span>
+            Utilizing paper shell patterns allowed controlled expansion of polyurethane foam, yielding a lightweight structural foundation without excess carving waste[cite: 4].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Thermal Clay Control:</span>
+            Pre-heating hard styling clay (CM-70) created a pliable consistency that adhered seamlessly to the paper-covered foam substrate[cite: 4].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Tactile Surface Styling:</span>
+            Demonstrating a half-and-half split clearly showcases the underlying structural core versus the refined, hand-sculpted ergonomic grip detailing[cite: 4].
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PROBLEM SET 6 PLACEHOLDER -->
+    <section id="ps6" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-6">
+      <div class="border-b border-slate-100 pb-4 flex items-center justify-between">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 bg-slate-100 px-2.5 py-1 rounded">Problem Set 5</span>
+        <span class="text-xs text-slate-400 font-mono">Final Assembly &amp; Integration</span>
+      </div>
+      <h2 class="text-2xl font-bold text-slate-900">Problem Set 6: Title Placeholder</h2>
+      <p class="text-slate-500 text-sm italic">Documentation and image assets for Problem Set 6 will be added here...</p>
+      <div class="h-40 bg-slate-50 border-2 border-dashed border-slate-200 rounded-2xl flex items-center justify-center text-slate-400 text-xs font-mono">
+        [ PS5 Content Section Placeholder ]
       </div>
     </section>
 
-    <!-- FABRICATION PROJECTS SHOWCASE GRID -->
-    <section class="space-y-6">
-      <div class="border-b border-slate-200 pb-4">
-        <h3 class="text-2xl font-bold text-slate-900">Fabrication Works Showcase</h3>
-        <p class="text-slate-500 text-sm">Individual physical build logs and technique breakdowns across the 6 coursework projects.</p>
+
+    <!-- PROBLEM SET 7 SECTION -->
+    <section id="ps7" class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-8">
+      
+      <!-- Section Header -->
+      <div class="border-b border-slate-100 pb-5 space-y-2">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">Problem Set 7 • Final Project</span>
+          <span class="text-xs text-slate-400 font-mono">Balsa Wood &amp; Acrylic • Laser Cutting • Integrated Electrical Wiring</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">NightCharge: Modular Nightstand &amp; Ambient Desk Lamp</h2>
+        <p class="text-sm text-slate-600">A custom modular bedside nightstand combining laser-cut balsa wood, light-diffusing acrylic panels, built-in USB-C charging leads, and an ambient warm LED light source[cite: 4, 5].</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Work 1: Laser Cutting Assembly -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-vector-square text-3xl"></i>
-          </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Precision Cutting</span>
-            <h4 class="font-bold text-slate-900 text-base">Precision Laser-Cut Press-Fit Assembly</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Designed parametric 2D kerf-compensated vector profiles in CAD and assembled interlocking press-fit structures.
-            </p>
-          </div>
+      <!-- 1. PRODUCT FLYER & COMPLETED SHOWCASE -->
+      <div class="bg-purple-50/50 border border-purple-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-700">Stage 1 • Final Product &amp; Commercial Flyer</span>
+          <h3 class="text-lg font-bold text-slate-900">NightCharge Overview &amp; Live Deployment</h3>
+          <p class="text-xs text-slate-600">Designed to eliminate bedside cable clutter while providing a soft, diffused night light[cite: 4, 5].</p>
         </div>
 
-        <!-- Work 2: Heat-Formed Acrylic -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-fire-burner text-3xl"></i>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+          <!-- Product Flyer PDF Preview / Graphic -->
+          <div class="space-y-2">
+            <div class="h-80 bg-white rounded-xl overflow-hidden border border-purple-200 shadow-sm cursor-pointer group flex items-center justify-center">
+              <img src="images/ps7/Choung_Jenny_ps7_000_flyer.png" alt="NightCharge Product Flyer" class="w-full h-full object-contain group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.parentElement.innerHTML='<iframe src=\'images/ps7/Choung_Jenny_ps7_000_flyer.pdf\' class=\'w-full h-full border-0\'></iframe>';">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">1-Page Product Flyer (NightCharge)[cite: 3, 5]</p>
           </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Thermoforming</span>
-            <h4 class="font-bold text-slate-900 text-base">Heat-Formed Acrylic Shell</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Utilized strip heaters and bending jigs to shape flat acrylic sheets into custom curved structural housing components.
-            </p>
+
+          <!-- Final Assembled Product Glowing in Dark -->
+          <div class="space-y-2">
+            <div class="h-80 bg-white rounded-xl overflow-hidden border border-purple-200 shadow-sm cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_101_product.png" alt="NightCharge Assembled Product in Dark with Apple Watch Charging" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <p class="text-[11px] text-slate-500 font-mono text-center">Live Test: Diffused Acrylic Ambient Glow &amp; Active Watch Charging[cite: 3, 5]</p>
           </div>
         </div>
-
-        <!-- Work 3: Silicone Mold & Resin Cast -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-fill-drip text-3xl"></i>
-          </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Molding &amp; Casting</span>
-            <h4 class="font-bold text-slate-900 text-base">Silicone Molding &amp; Resin Casting</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              3D printed negative master patterns, vacuum-degassed liquid silicone molds, and cast solid polyurethane resin parts.
-            </p>
-          </div>
-        </div>
-
-        <!-- Work 4: Ergonomic Foam Mockups -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-cubes text-3xl"></i>
-          </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Rapid Mockups</span>
-            <div class="font-bold text-slate-900 text-base">Iterative Foam &amp; Clay Prototypes</div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Hand-sculpted high-density foam and oil-based clay models for rapid tactile testing of palm/finger ergonomics.
-            </p>
-          </div>
-        </div>
-
-        <!-- Work 5: Hybrid Multi-Material Build -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-layer-group text-3xl"></i>
-          </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Assembly</span>
-            <h4 class="font-bold text-slate-900 text-base">Multi-Material Mechanical Integration</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Combined 3D printed components, stock fasteners, and laser-cut acrylic plates into a unified mechanical sub-assembly.
-            </p>
-          </div>
-        </div>
-
-        <!-- Work 6: Final Functional Prototype -->
-        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
-          <div class="bg-slate-100 h-48 flex items-center justify-center text-slate-400 border-b border-slate-200">
-            <i class="fa-solid fa-award text-3xl"></i>
-          </div>
-          <div class="p-5 space-y-2">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Final Build</span>
-            <h4 class="font-bold text-slate-900 text-base">Final Functional Prototype Demonstration</h4>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Full physical assembly integrating aesthetic surface finishing, toleranced mating features, and physical load testing.
-            </p>
-          </div>
-        </div>
-
       </div>
+
+      <!-- 2. SCHEMATIC & CONCEPTUAL SKETCHING -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        
+        <!-- Header with Controls & Counter -->
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="space-y-1">
+            <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600">Stage 2 • System Architecture &amp; Schematics</span>
+            <h3 class="text-lg font-bold text-slate-900">Ideation, Mechanical Layout &amp; Wiring Diagrams</h3>
+          </div>
+          
+          <!-- Explicit UX Indicator Controls -->
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-mono text-slate-500 bg-slate-200/60 px-2.5 py-1 rounded-full font-semibold">5 Sketches • Scroll &rarr;</span>
+            <button onclick="document.getElementById('ps7-sketch-container').scrollBy({left: -300, behavior: 'smooth'})" class="p-2 bg-white border border-slate-200 rounded-lg shadow-sm hover:bg-slate-100 transition text-slate-600 active:scale-95" aria-label="Previous">
+              &larr;
+            </button>
+            <button onclick="document.getElementById('ps7-sketch-container').scrollBy({left: 300, behavior: 'smooth'})" class="p-2 bg-white border border-slate-200 rounded-lg shadow-sm hover:bg-slate-100 transition text-slate-600 active:scale-95" aria-label="Next">
+              &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Scrollable Track -->
+        <div id="ps7-sketch-container" class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-slate-100">
+          
+          <!-- Card 1 -->
+          <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 group">
+              <img src="images/ps7/Choung_Jenny_ps7_201_process.png" alt="Overall Concept" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">1. Initial Concept</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 group">
+              <img src="images/ps7/Choung_Jenny_ps7_202_process.png" alt="Panel Dimensions" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">2. Panel Dimensions</span>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 group">
+              <img src="images/ps7/Choung_Jenny_ps7_203_process.png" alt="Stack Assembly" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">3. Stack Assembly</span>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 group">
+              <img src="images/ps7/Choung_Jenny_ps7_204_process.png" alt="Swivel Detail" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">4. Swivel Hinge Detail</span>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
+            <div class="h-56 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 group">
+              <img src="images/ps7/Choung_Jenny_ps7_205_process.png" alt="System Isometric" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+            </div>
+            <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">5. System Isometric</span>
+          </div>
+
+        </div>
+
+        <!-- Description -->
+        <p class="text-xs text-slate-600 border-t border-slate-200 pt-3 mt-2">
+          <strong>Design Progression:</strong> Initial system concepts detailing panel dimensions for laser cutting, stacked modular tier alignment, rotating top cover swivel hinge mechanics, and internal DC wiring channels for multi-USB-C charging outputs[cite: 4].
+        </p>
+      </div>
+
+      <!-- 3. ELECTRICAL & HARDWARE FABRICATION PROCESS -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600">Stage 3 • Fabrication &amp; Wiring Assembly</span>
+          <h3 class="text-lg font-bold text-slate-900">Laser Cutting, Splicing, and Modular Enclosure Stacking</h3>
+          <p class="text-xs text-slate-600">Soldering power leads, assembling laser-cut balsa and acrylic wall modules, and test-fitting hardware components[cite: 3, 4].</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <!-- Wiring Harness -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-40 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_206_process.png" alt="Base Box Power Harness Wiring" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">1. DC Power Harness</span>
+              <p class="text-[11px] text-slate-500">Power split into multi-USB-C leads[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- Acrylic & Wood Tier Test -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-40 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_207_process.png" alt="Stacked Wood and Translucent Acrylic Enclosure" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">2. Acrylic Tier Fit</span>
+              <p class="text-[11px] text-slate-500">Fastened balsa &amp; acrylic walls[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- LED Mounting Plate -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-40 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_208_process.png" alt="Top Plate Threaded LED Light Mount" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">3. Threaded Light Mount</span>
+              <p class="text-[11px] text-slate-500">Secured LED housing on top panel[cite: 4].</p>
+            </div>
+          </div>
+
+          <!-- Stacked Box Prep -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between">
+            <div class="h-40 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_211_process.png" alt="Full Modular Stack Test Assembly" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">4. Enclosure Stack Test</span>
+              <p class="text-[11px] text-slate-500">Checking mechanical tab alignment[cite: 3, 4].</p>
+            </div>
+          </div>
+
+          <!-- Final Swivel & CAD Alignment -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm flex flex-col justify-between sm:col-span-2 lg:col-span-1">
+            <div class="h-40 rounded-lg overflow-hidden border border-slate-100 bg-slate-100 cursor-pointer group">
+              <img src="images/ps7/Choung_Jenny_ps7_212_process.png" alt="Completed Nightstand Unit on Workstation Desk" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            </div>
+            <div>
+              <span class="text-xs font-mono font-bold text-slate-800 block">5. Final Desktop Assembly</span>
+              <p class="text-[11px] text-slate-500">Orange swivel cover &amp; CAD verification[cite: 3, 4].</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 4. VIDEO PRESENTATION & FUNCTIONALITY DEMO -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
+        <div class="space-y-1">
+          <span class="text-xs font-mono font-bold uppercase tracking-wider text-purple-600">Stage 4 • Video Overview &amp; Functionality</span>
+          <h3 class="text-lg font-bold text-slate-900">Project Video Showcase</h3>
+          <p class="text-xs text-slate-600">Demonstrating the problem statement, ideation sketches, charging capability, and interactive ambient light[cite: 3].</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Video Demo 1: Full Process & Presentation Video -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="aspect-video rounded-lg overflow-hidden bg-slate-900 flex items-center justify-center">
+              <video controls class="w-full h-full object-cover" poster="images/ps7/Choung_Jenny_ps7_101_product.png">
+                <source src="images/ps7/Choung_Jenny_ps7_102_product.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800 block">NightCharge Overview Video</span>
+              <p class="text-[11px] text-slate-500">Problem statement, sketch progression, and assembly walk-through[cite: 3].</p>
+            </div>
+          </div>
+
+          <!-- Video Demo 2: Functional Test (Swivel Cover & Watch Charger) -->
+          <div class="bg-white border border-slate-200 rounded-xl p-3 space-y-2 shadow-sm">
+            <div class="aspect-video rounded-lg overflow-hidden bg-slate-900 flex items-center justify-center">
+              <video controls class="w-full h-full object-cover">
+                <source src="images/ps7/Choung_Jenny_ps7_209_process.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+              </video>
+            </div>
+            <div class="text-center">
+              <span class="text-xs font-mono font-semibold text-slate-800 block">Swivel Light &amp; Charging Test</span>
+              <p class="text-[11px] text-slate-500">Live demonstration of light switch activation and Apple Watch magnetic dock[cite: 3].</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. TECHNICAL INSIGHTS -->
+      <div class="bg-slate-900 text-slate-100 rounded-2xl p-6 space-y-3 border border-slate-800">
+        <h4 class="text-sm font-bold text-purple-400 uppercase tracking-wider">Final Project Technical Takeaways</h4>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-300">
+          <div>
+            <span class="font-bold text-white block mb-1">Hybrid Material Integration:</span>
+            Combining laser-cut balsa wood structural bases with frosted acrylic panels provided both mechanical stability and clean light diffusion[cite: 4, 5].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Embedded Power Management:</span>
+            Splicing a single DC power input into internal USB-C breakout channels reduced bedside cable clutter into one compact unit[cite: 4, 5].
+          </div>
+          <div>
+            <span class="font-bold text-white block mb-1">Modular Fastening Strategy:</span>
+            Utilizing mechanical tab connectors and screws allowed easy access to internal wiring for maintenance and future upgrades[cite: 4].
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </main>
+
+  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-slate-500 text-sm bg-white">
+    Jenny Choung Portfolio — DIY Design &amp; Fabrication (24-672)
+  </footer>
+
+  <!-- JAVASCRIPT: ACTIVE TAB HIGHLIGHT ON SCROLL & LIGHTBOX MODAL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      /* --- 1. DYNAMIC ACTIVE TAB SCROLL OBSERVER --- */
+      const tabs = document.querySelectorAll('.tab-btn');
+      const sections = document.querySelectorAll('section[id^="ps"]');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            
+            tabs.forEach(tab => {
+              const href = tab.getAttribute('href').replace('#', '');
+              const dot = tab.querySelector('.tab-dot');
+
+              if (href === currentId) {
+                // Active State
+                tab.classList.add('bg-white', 'text-slate-900', 'border-amber-500', 'shadow-sm');
+                tab.classList.remove('bg-slate-200/70', 'text-slate-600', 'border-transparent');
+                if (dot) {
+                  dot.classList.add('bg-amber-500');
+                  dot.classList.remove('bg-slate-400');
+                }
+              } else {
+                // Inactive State
+                tab.classList.remove('bg-white', 'text-slate-900', 'border-amber-500', 'shadow-sm');
+                tab.classList.add('bg-slate-200/70', 'text-slate-600', 'border-transparent');
+                if (dot) {
+                  dot.classList.remove('bg-amber-500');
+                  dot.classList.add('bg-slate-400');
+                }
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+
+      /* --- 2. LIGHTBOX MODAL INTERACTION --- */
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      const modalCaption = document.getElementById('modalCaption');
+      const closeModalBtn = document.getElementById('closeModal');
+
+      document.querySelectorAll('main img').forEach(img => {
+        img.addEventListener('click', () => {
+          modalImg.src = img.src;
+          modalCaption.textContent = img.alt || 'Fabrication Detail View';
+          modal.classList.remove('hidden');
+        });
+      });
+
+      closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) modal.classList.add('hidden'); });
+    });
+  </script>
 </body>
 </html>
