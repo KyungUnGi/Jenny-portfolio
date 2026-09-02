@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CIMT Assistive Switch Device | Jenny Choung</title>
-  <!-- Tailwind CSS CDN -->
+  <title>CIMT Switch Device | Jenny Choung</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,119 +14,103 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-  <!-- Top Bar Navigation (Matches PosturBot / Kinematic Pages) -->
+  <!-- Top Bar Navigation -->
   <div class="max-w-6xl mx-auto px-6 pt-6 flex items-center justify-between">
     <a href="index.html" class="inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
       <span class="mr-2">&larr;</span> Back to Portfolio
     </a>
     <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
-      Biomedical Engineering Capstone
+      CMU Biomedical Engineering
     </span>
   </div>
 
-  <!-- Primary Wrapper Card -->
+  <!-- Primary Card Container -->
   <div class="max-w-6xl mx-auto px-6 py-6">
     <div class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-12">
 
-      <!-- Header Section -->
+      <!-- Header -->
       <div class="space-y-4">
         <div class="inline-flex items-center">
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-md border border-indigo-100">
-            Pediatric Assistive Technology & Biomedical Device
+            Assistive Device Design & Fabrication
           </span>
         </div>
 
-        <div class="flex flex-wrap items-center gap-3">
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            CIMT Assistive Switch Device
-          </h1>
-          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-            &bull; Clinical Validation Prototype
-          </span>
-        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          CIMT Assistive Switch Device
+        </h1>
 
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl">
-          A non-restrictive therapeutic switch system for children with cerebral palsy, promoting motor recovery and intentional non-dominant hand engagement through interactive wireless play.
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl">
+          Physical prototyping, CAD modeling, and iterative hardware fabrication of an assistive switch device designed to encourage therapeutic non-dominant hand usage in pediatric patients with cerebral palsy[cite: 1, 2].
         </p>
 
-        <!-- Skill & Technology Pill Tags -->
+        <!-- Skill Badges -->
         <div class="flex flex-wrap gap-2 pt-2">
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">SolidWorks CAD</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">CAD Modeling</span>
           <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">3D Printing (PLA)</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Hall Effect Magnetic Sensing</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">433 MHz RF Wireless Link</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Ergonomic Iteration</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Pediatric CIMT Therapy</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Rapid Prototyping</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Hardware Modification</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Physical Testing</span>
         </div>
       </div>
 
-      <!-- Project Overview & System Diagram Split Card -->
-      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-6 space-y-4">
-          <h2 class="text-xl font-bold text-slate-900">Project Overview</h2>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            Constraint-Induced Movement Therapy (CIMT) effectively improves motor outcomes in children with cerebral palsy by promoting non-dominant arm use. However, conventional interventions rely on physical casting or rigid binding, which causes high frustration and sensory discomfort.
-          </p>
-          <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
-            <li><strong>Sensory-Friendly Alternative:</strong> Replaces rigid casts with an open-palm rest switch and a playful magnetic wearable strap.</li>
-            <li><strong>Reward-Driven Logic:</strong> Internal Hall effect sensor continuously triggers power to an interactive sensory board while the dominant hand remains placed.</li>
-            <li><strong>Clinical Guidance:</strong> Developed in close partnership with clinical contact Virginia Quellmalz-Zallocco, OTD/S, COTA, CLT.</li>
-          </ul>
-        </div>
-
-        <div class="lg:col-span-6">
-          <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-3">
-            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block">System Operational Pipeline</span>
-            <div class="grid grid-cols-3 gap-2 text-center text-xs font-medium text-slate-700">
-              <div class="p-3 bg-slate-50 border border-slate-100 rounded-lg">
-                <span class="block text-indigo-600 font-bold mb-1">1. Contact</span>
-                Magnetic strap rests on mouse dome
-              </div>
-              <div class="p-3 bg-indigo-50 border border-indigo-100 rounded-lg">
-                <span class="block text-indigo-600 font-bold mb-1">2. RF Relay</span>
-                433 MHz signal unlocks power
-              </div>
-              <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-lg">
-                <span class="block text-emerald-600 font-bold mb-1">3. Active Play</span>
-                Non-dominant hand operates board
-              </div>
-            </div>
+      <!-- My Role & Contributions -->
+      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8">
+        <h2 class="text-xl font-bold text-slate-900 mb-4">My Contributions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-800">Physical Prototyping</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Led the physical assembly and hands-on iteration of switch enclosures across each milestone, translating clinical feedback into 3D prints[cite: 2, 4, 6].
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-800">Custom CAD Integration</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Designed custom 3D-printable housing components to mount and protect the master power switches directly onto the secondary sensory toy[cite: 1, 2, 5].
+            </p>
+          </div>
+          <div class="space-y-2">
+            <h3 class="font-bold text-slate-800">Needs & Gaps Analysis</h3>
+            <p class="text-slate-600 leading-relaxed">
+              Evaluated current clinical constraints—specifically how rigid casts and standard button switches fail to accommodate spastic hand curling in young children[cite: 1, 2].
+            </p>
           </div>
         </div>
       </div>
 
-      <!-- Functional Validation Video Section -->
+      <!-- Functional Demonstration Video -->
       <div class="space-y-4">
-        <h2 class="text-xl font-bold text-slate-900">Functional Validation & Demonstration</h2>
+        <h2 class="text-xl font-bold text-slate-900">Functional Assembly Demonstration</h2>
         <p class="text-sm text-slate-600 leading-relaxed">
-          Demonstration of the closed-loop switch system: lifting the dominant hand immediately breaks the magnetic threshold (2–3 cm) and cuts circuit power, motivating the child to maintain posture while exploring the sensory board.
+          The final working system in operation: placing the dominant hand on the curved switch maintains sensor contact and delivers power to the sensory board, which shuts off as soon as the hand lifts[cite: 1, 2].
         </p>
         <div class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-black shadow-sm">
           <video class="w-full h-full object-cover" controls playsinline>
-            <source src="https://github.com/user-attachments/assets/PASTE_YOUR_DEMO_VIDEO_ID" type="video/mp4">
+            <source src="PASTE_YOUR_DEMO_VIDEO_URL.mp4" type="video/mp4">
           </video>
         </div>
       </div>
 
-      <!-- Iterative Design Progression Cards -->
+      <!-- Design Iterations -->
       <div class="space-y-6">
-        <h2 class="text-xl font-bold text-slate-900">Physical Design Evolution</h2>
+        <h2 class="text-xl font-bold text-slate-900">Form Factor Prototyping</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <!-- Iteration 1 -->
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
             <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
               <img 
-                src="https://github.com/user-attachments/assets/PASTE_IMG_9078_URL" 
-                alt="Prototype 1 vertical peg switch" 
+                src="PASTE_IMG_9078_URL.jpg" 
+                alt="Initial vertical post prototype" 
                 class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
               >
             </div>
             <div>
               <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Prototype 1</span>
-              <h3 class="font-bold text-slate-900 text-base mt-0.5">Vertical Peg Grasp Switch</h3>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Vertical Post Switch</h3>
               <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Initial 3D-printed iteration featuring a vertical cylindrical handle. Clinical evaluation revealed that pediatric patients with spasticity could not comfortably grasp or open clenched fingers around the upright post.
+                Fabricated an upright peg handle[cite: 1, 2, 4]. Testing revealed children with motor spasticity struggled to grip and hold cylindrical posts without excessive clenching[cite: 1, 2, 4].
               </p>
             </div>
           </div>
@@ -136,16 +119,16 @@
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
             <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
               <img 
-                src="https://github.com/user-attachments/assets/PASTE_IMG_9280_URL" 
-                alt="Prototype 3 mouse-curved switch enclosure" 
+                src="PASTE_IMG_9280_URL.jpg" 
+                alt="Curved ergonomic switch enclosure" 
                 class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
               >
             </div>
             <div>
               <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Prototype 2 & 3</span>
-              <h3 class="font-bold text-slate-900 text-base mt-0.5">Ergonomic Mouse Dome (Final)</h3>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Ergonomic Mouse Dome</h3>
               <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                Pivoted to a low-profile curved mouse geometry. The contoured dome supports relaxed palm resting without forcing finger extension, housing the internal magnetic sensor cleanly below the surface.
+                Redesigned into a curved resting dome[cite: 1, 6]. Allows the child to rest an open palm naturally while keeping the internal sensor properly engaged[cite: 1, 2].
               </p>
             </div>
           </div>
@@ -153,45 +136,45 @@
         </div>
       </div>
 
-      <!-- Hardware & Sensory Toy Fabrication (CAD vs Reality) -->
+      <!-- Toy Modification CAD & Physical Part -->
       <div class="space-y-6">
-        <h2 class="text-xl font-bold text-slate-900">Custom Toy Modification & Safety Enclosure</h2>
+        <h2 class="text-xl font-bold text-slate-900">Custom Toy Hardware Modification</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
-          <!-- CAD Model Card -->
+          <!-- CAD Model -->
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
             <div class="aspect-[4/3] bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
               <img 
-                src="https://github.com/user-attachments/assets/PASTE_PNG_IMAGE_URL" 
-                alt="CAD model of power switch cover" 
+                src="PASTE_PNG_IMAGE_URL.jpeg" 
+                alt="CAD model of power switch enclosure" 
                 class="w-full h-full object-contain p-4 hover:scale-105 transition duration-300"
               >
             </div>
-            <p class="text-xs text-slate-500 text-center font-medium">SolidWorks CAD enclosure designed for master power interface</p>
+            <p class="text-xs text-slate-500 text-center font-medium">CAD model designed to enclose the power toggle and secure internal wiring</p>
           </div>
 
-          <!-- 3D Printed Physical Card -->
+          <!-- Physical 3D Print -->
           <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
             <div class="aspect-[4/3] bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
               <img 
-                src="https://github.com/user-attachments/assets/PASTE_IMG_9387_URL" 
-                alt="3D-printed switch plate mounted on toy" 
+                src="PASTE_IMG_9387_URL.jpg" 
+                alt="3D printed switch plate mounted on toy" 
                 class="w-full h-full object-contain p-4 hover:scale-105 transition duration-300"
               >
             </div>
-            <p class="text-xs text-slate-500 text-center font-medium">3D-printed protective faceplate installed on sensory board</p>
+            <p class="text-xs text-slate-500 text-center font-medium">3D-printed enclosure plate fitted and mounted directly onto the sensory board[cite: 1, 2, 5]</p>
           </div>
 
         </div>
         <p class="text-sm text-slate-600 leading-relaxed">
-          The interactive busy board was retrofitted with custom 3D-printed protective shielding to isolate the battery terminals and wire splicing, ensuring full durability and safety for continuous pediatric handling.
+          Modeled and 3D-printed a custom protective faceplate to adapt the off-the-shelf sensory toy, securely isolating electrical wiring and terminals for child safety[cite: 1, 2, 5].
         </p>
       </div>
 
     </div>
   </div>
 
-  <!-- Matching Clean Footer -->
+  <!-- Footer -->
   <footer class="max-w-6xl mx-auto px-6 py-8 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
     <p>&copy; Jenny Choung &middot; Carnegie Mellon University</p>
     <div class="flex items-center space-x-6">
