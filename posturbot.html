@@ -76,7 +76,7 @@
           </span>
         </div>
 
-        <h2 class="text-xl sm:text-2xl text-slate-600 font-medium">Dual-IMU Cervical Posture Monitor for Tech Neck Mitigation</h2>
+        <h2 class="text-xl sm:text-2xl text-slate-600 font-medium">Dual-IMU Wearable Cervical Posture Monitor</h2>
       </div>
 
       <!-- Tech Stack Tags -->
@@ -93,19 +93,9 @@
         <div class="space-y-4">
           <h3 class="text-xl font-bold text-slate-900">System Architecture Overview</h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            PosturBot replaces unreliable single-sensor chest/spine monitors by calculating the <strong>relative angle</strong> between two dynamic IMU nodes: one reference node behind the neck and one ear-mounted tracking node.
-          </p>
-          <ul class="space-y-2 text-xs text-slate-700 list-disc list-inside font-medium">
-            <li>Non-adhesive, ergonomic ear hook fit eliminating skin irritation.</li>
-            <li>Real-time relative cervical angle estimation with zero drift calibration.</li>
-            <li>Wireless BLE telemetry transmitting live data to a customized Web Dashboard.</li>
-          </ul>
-          <h3 class="text-xl font-bold text-slate-900">Current Phase</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">
-            After assembling the first functional prototype, I identified several mechanical issues that were not fully apparent in the CAD model.
-            These included a fractured hinge feature, insufficient retention of the ear-mounted IMU, and difficulties securing internal components during assembly. 
-            These observations are guiding the next design iteration, which will focus on improving hinge durability, component retention, and assembly accessibility. 
-            The revised design and its performance have not yet been validated.
+            PosturBot is a wearable prototype designed to monitor forward head posture using two MPU-6050 inertial measurement units (IMUs). One sensor tracks head orientation near the ear, while the other provides a reference measurement at the back of the neck.
+            An ESP32-C3 microcontroller processes the sensor data and transmits the estimated relative angle to a web dashboard through Bluetooth Low Energy (BLE)
+            The system integrates custom SolidWorks-designed, 3D-printed enclosures, embedded electronics, and real-time posture visualization. 
           </p>
 
         </div>
@@ -115,43 +105,110 @@
       </div>
     </section>
 
+    <!-- Design Requirements & Constraints -->
+    <section class="space-y-6">
+      <div class="border-b border-slate-200 pb-3">
+        <h3 class="text-2xl font-bold text-slate-900">Design Requirements &amp; Constraints</h3>
+        <p class="text-slate-500 text-sm">The mechanical design was developed around several key considerations:</p>
+        <ul class="space-y-2 text-xs text-slate-700 list-disc list-inside font-medium">
+          <li>Wearability: Create compact enclosures that can be positioned near the ear and neck without relying on skin adhesives.</li>
+          <li>Sensor placement: Maintain consistent IMU positioning to support relative orientation measurements.</li>
+          <li>Component integration: Accommodate the microcontroller, sensors, battery, and wiring within the available enclosure space.</li>
+          <li>Fabrication: Design parts suitable for iterative FDM 3D printing.</li>
+          <li>Assembly and accessibility: Allow the device to be assembled, connected, and accessed during prototyping and firmware updates.</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- IDEATION & CONCEPT SKETCHES GALLERY -->
     <section class="space-y-6">
       <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-2xl font-bold text-slate-900">Concept Ideation &amp; Early Sketches</h3>
-        <p class="text-slate-500 text-sm">Exploratory sketches investigating ear clip ergonomics, weight distribution, and sensor placement (click to expand).</p>
+        <h3 class="text-2xl font-bold text-slate-900">Concept Development</h3>
+        <p class="text-slate-500 text-sm">
+          Initial sketches explored wearable sensor placement, ear-hook geometry, mechanical mounting features, and internal component packaging. These concepts guided the development of the ear-mounted sensor housing and neck module in SolidWorks.
+        </p>
       </div>
+      <!-- Design Exploration Grid -->
+      <div class="space-y-6">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-slate-900">Concept Exploration & Hardware Packaging</h2>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded bg-slate-100 text-slate-600">4 Core Milestones</span>
+        </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 1.png" alt="Concept Sketch 1" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 2.png" alt="Concept Sketch 2" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 3.png" alt="Concept Sketch 3" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 4.png" alt="Concept Sketch 4" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 5.png" alt="Concept Sketch 5" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 6.png" alt="Concept Sketch 6" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 7.png" alt="Concept Sketch 7" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 8.png" alt="Concept Sketch 8" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 9.png" alt="Concept Sketch 9" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
-        </div>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm h-36 p-2 group hover:border-emerald-500 transition cursor-pointer">
-          <img src="images/posturbot/sketch 10.png" alt="Concept Sketch 10" class="w-full h-full object-contain group-hover:scale-105 transition duration-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Card 01 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
+              <img 
+                src="images/posturbot/sketch 6.png" 
+                alt="01 — Sensor Placement" 
+                class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
+              >
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Phase 01</span>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Sensor Placement</h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Exploring how the sensor could be positioned near the ear while monitoring head and neck movement.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
+              <img 
+                src="images/posturbot/sketch 2.png" 
+                alt="02 — Ear-Hook Concept" 
+                class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
+              >
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Phase 02</span>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Ear-Hook Concept</h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Investigating enclosure geometry, wearable attachment, and cable routing.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
+              <img 
+                src="images/posturbot/sketch 4.png" 
+                alt="03 — Mechanical Mounting" 
+                class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
+              >
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Phase 03</span>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Mechanical Mounting</h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Developing preliminary ideas for sensor mounting and enclosure assembly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 04 -->
+          <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
+            <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
+              <img 
+                src="images/posturbot/sketch 7.png" 
+                alt="04 — Electronics Packaging" 
+                class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
+              >
+            </div>
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Phase 04</span>
+              <h3 class="font-bold text-slate-900 text-base mt-0.5">Electronics Packaging</h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                Planning the arrangement of electronic components within the neck module.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
