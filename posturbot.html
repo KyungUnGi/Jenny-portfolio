@@ -386,19 +386,18 @@
           <img src="images/posturbot/circuit diagram.png" alt="PosturBot Circuit Diagram" class="w-full h-full object-contain">
         </div>
         <div class="space-y-4">
-          <h4 class="text-lg font-bold text-slate-900">Dual I2C Communication Architecture</h4>
+          <h4 class="text-lg font-bold text-slate-900">Dual I2C Sensor Architecture</h4>
           <p class="text-sm text-slate-600 leading-relaxed">
-            The hardware configuration manages two MPU-6050 6-axis IMU sensors over a shared I2C bus by configuring unique hardware addresses (`0x68` for ear node and `0x69` for neck reference node).
+            The system integrates two MPU-6050 IMUs on a shared I2C bus, using separate addresses (0x68 for the ear-mounted sensor and 0x69 for the neck reference sensor). An ESP32-C3 microcontroller reads both sensors and processes their measurements to estimate relative head-to-neck orientation.
           </p>
           <ul class="space-y-2 text-xs text-slate-700 font-medium">
             <li class="flex items-center gap-2">
               <i class="fa-solid fa-microchip text-emerald-600"></i>
-              <span><strong>ESP32-C3:</strong> Handles high-frequency IMU polling and Web Bluetooth broadcasts.</span>
+              <span><strong>Microcontroller & Communication:</strong> The ESP32-C3 collects IMU measurements and transmits posture data wirelessly through Bluetooth Low Energy (BLE).</span>
             </li>
             <li class="flex items-center gap-2">
               <i class="fa-solid fa-bolt text-emerald-600"></i>
-              <span><strong>Power Delivery:</strong> Integrated LiPo battery power step-down with low-noise filtering for IMU stability.</span>
-            </li>
+              <span><strong>Power & Haptic Feedback:</strong> A LiPo battery powers the wearable electronics, while a transistor-controlled vibration motor provides haptic feedback when posture thresholds are exceeded.</span>
           </ul>
         </div>
       </div>
