@@ -407,7 +407,7 @@
     <section class="space-y-6">
       <div class="border-b border-slate-200 pb-3">
         <h3 class="text-2xl font-bold text-slate-900">Web Bluetooth (BLE) Telemetry &amp; Software</h3>
-        <p class="text-slate-500 text-sm">Real-time wireless communication and data visualization interface.</p>
+        <p class="text-slate-500 text-sm">Prototype dashboard development and preliminary sensor-data integration.</p>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
@@ -415,20 +415,25 @@
           <img src="images/posturbot/posturbot_dashboard.jpg" alt="PosturBot Web Dashboard" class="w-full h-full object-contain">
         </div>
         <div class="space-y-4">
-          <h4 class="text-lg font-bold text-slate-900">Live Posture Monitoring Interface</h4>
+          <h4 class="text-lg font-bold text-slate-900">Prototype Web Dashboard</h4>
           <p class="text-sm text-slate-600 leading-relaxed">
-            Built using standard Web Bluetooth APIs to connect directly to the ESP32-C3 without requiring native mobile app installations.
+            Developed a browser-based interface using the Web Bluetooth API to support wireless communication with the ESP32-C3, without requiring a dedicated mobile application.
           </p>
           <ul class="space-y-2 text-xs text-slate-600">
             <li class="flex items-start gap-2">
               <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
-              <span><strong>Complementary Filtering:</strong> Fuses accelerometer and gyroscope data to filter out body movement noise.</span>
+              <span><strong>Wireless Communication:</strong> Implemented a BLE-based interface for receiving sensor information from the ESP32-C3.</span>
             </li>
             <li class="flex items-start gap-2">
               <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
-              <span><strong>Visual Alert Triggers:</strong> Flags forward head posture ("Tech Neck") when relative angle exceeds customizable ergonomic thresholds.</span>
+              <span><strong>Sensor Data Processing:</strong> Integrated accelerometer and gyroscope readings into preliminary relative-angle estimation logic. Filtering performance and measurement accuracy have not yet been validated.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
+              <span><strong>Posture Feedback Logic:</strong> Developed preliminary angle-threshold logic for visual posture alerts, with further testing required to evaluate reliability.</span>
             </li>
           </ul>
+          <p>Development Status: The dashboard image illustrates the current interface design using placeholder data. The displayed graph does not represent validated measurements. End-to-end testing, sensor calibration, and system validation remain in progress.</p>
         </div>
       </div>
     </section>
