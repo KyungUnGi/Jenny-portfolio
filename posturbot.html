@@ -417,7 +417,7 @@
         <span class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">            
             Dashboard interface preview using placeholder data. Not representative of validated sensor measurements.
         </span>
-        
+
         <div class="space-y-4">
           <h4 class="text-lg font-bold text-slate-900">Prototype Web Dashboard</h4>
           <p class="text-sm text-slate-600 leading-relaxed">
@@ -508,6 +508,61 @@
             </p>
           </div>
         </div>
+        
+        <!-- Physical Prototype Assembly Description -->
+        <div class="mt-6 space-y-4">
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The current PosturBot prototype integrates custom 3D-printed
+            head and neck enclosures with dual MPU-6050 IMUs, an ESP32-C3
+            microcontroller, and wired connections between the modules.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The neck enclosure incorporates a hinged cover for access
+            to internal electronics, while the head module houses the
+            second IMU for relative orientation measurements.
+          </p>
+
+          <h4 class="text-md font-bold text-slate-900">
+            Prototype Assembly Observations
+          </h4>
+
+          <ul class="space-y-3 text-sm text-slate-600 leading-relaxed list-disc pl-5">
+            <li>
+              <strong>Electronics Integration:</strong>
+              Assembled and soldered the electronics within the 3D-printed
+              housings, identifying challenges with internal component
+              placement and wire management.
+            </li>
+
+            <li>
+              <strong>Mechanical Durability:</strong>
+              Observed limitations in the printed hinge and
+              component-retention features, highlighting areas
+              for future design revisions.
+            </li>
+
+            <li>
+              <strong>Sensor Orientation:</strong>
+              Identified unexpected angle readings and inconsistent
+              posture classification during preliminary testing.
+              Currently investigating whether the physical IMU mounting
+              orientations differ from the coordinate axes assumed
+              in the software.
+            </li>
+          </ul>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            <strong class="text-slate-900">Current Status:</strong>
+            Physical prototype assembly and BLE communication have
+            been achieved. Mechanical design refinements,
+            sensor-axis troubleshooting, and integrated system
+            validation remain in progress.
+          </p>
+
+        </div>
+
       </div>
   </main>
 
