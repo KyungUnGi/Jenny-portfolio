@@ -1,614 +1,713 @@
--_<!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PosturBot — Cervical Posture Monitoring System</title>
+  <title>PosturBot | Engineering Case Study — Jenny Choung</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <style>
-    /* Lightbox Modal Animations */
-    #imageModal {
-      transition: opacity 0.25s ease-in-out;
-    }
-    #imageModal.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    #imageModal:not(.hidden) {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-  <!-- LIGHTBOX MODAL OVERLAY -->
-  <div id="imageModal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
-    
-    <!-- Modal Container -->
-    <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden flex flex-col items-center p-4">
-      
-      <!-- Close Button (X) -->
-      <button id="closeModal" class="absolute top-3 right-3 text-slate-500 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center text-xl font-bold transition z-10 focus:outline-none">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <!-- Enlarged Image Display -->
-      <div class="w-full h-full flex items-center justify-center overflow-auto p-2">
-        <img id="modalImg" src="" alt="Enlarged View" class="max-h-[80vh] max-w-full object-contain rounded-lg">
-      </div>
-
-      <!-- Caption -->
-      <p id="modalCaption" class="text-xs sm:text-sm text-slate-600 font-medium pt-3 text-center border-t border-slate-100 w-full mt-2"></p>
-    </div>
-
-  </div>
-
-  <!-- Header / Navigation -->
-  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+  <!-- Navigation -->
+  <header class="bg-white/90 backdrop-blur border-b border-slate-200 sticky top-0 z-40">
     <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-emerald-600 text-sm font-semibold transition">
-        <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+      <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-emerald-600">
+        <i class="fa-solid fa-arrow-left mr-2"></i>Back to Portfolio
       </a>
-      <span class="text-xs font-mono font-bold bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-200">
-        Posturbot
+      <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1">
+        PosturBot
       </span>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-6 py-10 space-y-12">
 
-    <!-- HERO / TITLE SECTION -->
-    <section class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm space-y-6">
+    <!-- 1. PROJECT OVERVIEW -->
+    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+
       <div class="space-y-3">
-        <div class="inline-flex items-center gap-2 text-xs font-bold text-emerald-600 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-md border border-emerald-200">
-          Wearable Robotics &amp; Biomedical Hardware
-        </div>
-        
-        <!-- Header Title + Active Progress Status Badge -->
-        <div class="flex flex-wrap items-center gap-3">
-          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">PosturBot</h1>
-          <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs px-3 py-1 rounded-full font-bold shadow-sm">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Phase: Prototype Evaluation & Planned Design Improvements
-          </span>
-        </div>
+        <span class="inline-block text-xs font-bold text-emerald-700 uppercase tracking-wider bg-emerald-50 border border-emerald-200 rounded px-3 py-1">
+          Wearable Robotics & Biomedical Hardware
+        </span>
 
-        <h2 class="text-xl sm:text-2xl text-slate-600 font-medium">Dual-IMU Wearable Cervical Posture Monitor</h2>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900">
+          PosturBot
+        </h1>
+
+        <h2 class="text-xl sm:text-2xl text-slate-600 font-medium">
+          Dual-IMU Wearable Cervical Posture Monitor
+        </h2>
+
+        <p class="text-sm text-slate-600 leading-relaxed max-w-3xl">
+          A wearable prototype designed to monitor forward head posture
+          by estimating relative head-to-neck orientation using two
+          inertial measurement units. The project combines mechanical
+          enclosure design, 3D printing, embedded electronics, and
+          preliminary Bluetooth-based posture monitoring.
+        </p>
+
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">SolidWorks CAD</span>
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">FDM 3D Printing</span>
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">ESP32-C3</span>
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">2× MPU-6050</span>
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">BLE</span>
+          <span class="bg-slate-100 border border-slate-200 px-3 py-1 rounded">Complementary Filter</span>
+        </div>
       </div>
 
-      <!-- Tech Stack Tags -->
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 pt-2 border-t border-slate-100">
-        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">ESP32-C3</span>
-        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">2x MPU-6050 IMUs</span>
-        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">SolidWorks CAD</span>
-        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Web Bluetooth (BLE)</span>
-        <span class="bg-slate-100 px-3 py-1 rounded-md border border-slate-200">Complementary Filter</span>
-      </div>
-
-      <!-- Main Full Assembly Overview Card -->
-      <div class="bg-slate-100 rounded-2xl overflow-hidden border border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-100 border border-slate-200 rounded-2xl p-5 items-center">
         <div class="space-y-4">
-          <h3 class="text-xl font-bold text-slate-900">System Architecture Overview</h3>
+          <h3 class="text-xl font-bold text-slate-900">
+            System Architecture
+          </h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            PosturBot is a wearable prototype designed to monitor forward head posture using two MPU-6050 inertial measurement units (IMUs). One sensor tracks head orientation near the ear, while the other provides a reference measurement at the back of the neck.
-            An ESP32-C3 microcontroller processes the sensor data and transmits the estimated relative angle to a web dashboard through Bluetooth Low Energy (BLE)
-            The system integrates custom SolidWorks-designed, 3D-printed enclosures, embedded electronics, and real-time posture visualization. 
+            One MPU-6050 IMU is positioned near the ear to track head
+            orientation, while a second IMU provides a reference
+            measurement at the back of the neck. An ESP32-C3 reads
+            sensor measurements and communicates with a browser-based
+            dashboard through Bluetooth Low Energy.
           </p>
-
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Custom SolidWorks-designed housings accommodate the
+            electronics, battery, wiring, and wearable attachment
+            interfaces.
+          </p>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm h-64 flex items-center justify-center p-4 cursor-pointer hover:opacity-95 transition">
-          <img src="images/posturbot/posturbot assem.png" alt="PosturBot Full CAD Assembly" class="w-full h-full object-contain">
+
+        <div class="bg-white rounded-xl border border-slate-200 p-4">
+          <img
+            src="images/posturbot/posturbot assem.png"
+            alt="PosturBot CAD assembly"
+            class="w-full h-64 object-contain rounded-lg project-image"
+          >
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="text-xs uppercase font-bold text-slate-500 mb-2">My Work</p>
+          <p class="text-sm text-slate-700">
+            Mechanical CAD, prototyping, enclosure fabrication,
+            electronics integration, and preliminary software development.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <p class="text-xs uppercase font-bold text-slate-500 mb-2">Current Prototype</p>
+          <p class="text-sm text-slate-700">
+            Physical assembly completed with dual IMUs,
+            microcontroller, and wired electronic components.
+          </p>
+        </div>
+
+        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <p class="text-xs uppercase font-bold text-amber-700 mb-2">Development Status</p>
+          <p class="text-sm text-slate-700">
+            V1 physical evaluation completed. V2 mechanical redesign
+            and integrated validation are pending.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Design Requirements & Constraints -->
-    <section class="space-y-6">
+    <!-- 2. PHYSICAL PROTOTYPE -->
+    <section class="space-y-5">
       <div class="border-b border-slate-200 pb-3">
-        <div class="space-y-3">
-          <h3 class="text-2xl font-bold text-slate-900">Design Requirements &amp; Constraints</h3>
-          <p class="text-slate-500 text-sm">The mechanical design was developed around several key considerations:</p>
-          <ul class="space-y-2 text-xs text-slate-700 list-disc list-inside font-medium">
-            <li>Wearability: Create compact enclosures that can be positioned near the ear and neck without relying on skin adhesives.</li>
-            <li>Sensor placement: Maintain consistent IMU positioning to support relative orientation measurements.</li>
-            <li>Component integration: Accommodate the microcontroller, sensors, battery, and wiring within the available enclosure space.</li>
-            <li>Fabrication: Design parts suitable for iterative FDM 3D printing.</li>
-            <li>Assembly and accessibility: Allow the device to be assembled, connected, and accessed during prototyping and firmware updates.</li>
-          </ul>
-        </div>
+        <h2 class="text-2xl font-bold text-slate-900">
+          Physical Prototype & Engineering Challenges
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Physical assembly revealed mechanical and integration issues
+          that are guiding the next design iteration.
+        </p>
       </div>
-    </section>
 
-    <!-- IDEATION & CONCEPT SKETCHES GALLERY -->
-    <section class="space-y-6">
-      <div class="border-b border-slate-200 pb-3">
-        <div class="space-y-3">
-          <h3 class="text-2xl font-bold text-slate-900">Concept Development</h3>
-          <p class="text-slate-500 text-sm">
-            Initial sketches explored wearable sensor placement, ear-hook geometry, mechanical mounting features, and internal component packaging. These concepts guided the development of the ear-mounted sensor housing and neck module in SolidWorks.
-          </p>
-        </div>
-        <!-- Design Exploration Grid -->
-        <div class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
-            <!-- Card 01 -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
-                <img 
-                  src="images/posturbot/sketch 6.png" 
-                  alt="01 — Sensor Placement" 
-                  class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
-                >
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Design Focus 01</span>
-                <h3 class="font-bold text-slate-900 text-base mt-0.5">Sensor Placement</h3>
-                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  Exploring how the sensor could be positioned near the ear while monitoring head and neck movement.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 02 -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
-                <img 
-                  src="images/posturbot/sketch 2.png" 
-                  alt="02 — Ear-Hook Concept" 
-                  class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
-                >
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Design Focus 02</span>
-                <h3 class="font-bold text-slate-900 text-base mt-0.5">Ear-Hook Concept</h3>
-                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  Investigating enclosure geometry, wearable attachment, and cable routing.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 03 -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
-                <img 
-                  src="images/posturbot/sketch 4.png" 
-                  alt="03 — Mechanical Mounting" 
-                  class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
-                >
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Design Focus 03</span>
-                <h3 class="font-bold text-slate-900 text-base mt-0.5">Mechanical Mounting</h3>
-                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  Developing preliminary ideas for sensor mounting and enclosure assembly.
-                </p>
-              </div>
-            </div>
-
-            <!-- Card 04 -->
-            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm space-y-3">
-              <div class="aspect-video bg-slate-100 rounded-xl overflow-hidden border border-slate-100 flex items-center justify-center">
-                <img 
-                  src="images/posturbot/sketch 7.png" 
-                  alt="04 — Electronics Packaging" 
-                  class="w-full h-full object-contain p-2 hover:scale-105 transition duration-300"
-                >
-              </div>
-              <div>
-                <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-600">Design Focus 04</span>
-                <h3 class="font-bold text-slate-900 text-base mt-0.5">Electronics Packaging</h3>
-                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">
-                  Planning the arrangement of electronic components within the neck module.
-                </p>
-              </div>
-            </div>
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-72 bg-slate-100 p-3">
+            <img
+              src="https://github.com/user-attachments/assets/f61b1e33-3758-4f99-bf85-2ae4a5cc898a"
+              alt="Open PosturBot prototype with electronics"
+              class="w-full h-full object-contain project-image"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-sm">Assembled Prototype</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Open neck enclosure showing integrated electronics,
+              wiring, and connected head module.
+            </p>
           </div>
         </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-72 bg-slate-100 p-3">
+            <img
+              src="https://github.com/user-attachments/assets/20e194d6-0233-4e74-af0f-1903b29c79d9"
+              alt="PosturBot internal electronics"
+              class="w-full h-full object-contain project-image"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-sm">Electronics Packaging</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              ESP32-C3, IMU, and wiring positioned inside the
+              custom 3D-printed housing.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-72 bg-slate-100 p-3">
+            <img
+              src="https://github.com/user-attachments/assets/c55fdbf9-684e-404f-bbea-67496bca4238"
+              alt="Curved enclosure and ear-mounted sensor module"
+              class="w-full h-full object-contain project-image"
+            >
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-sm">Wearable Assembly</h3>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+              Curved neck enclosure connected to the head-mounted
+              sensor module.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+        <h3 class="text-lg font-bold text-slate-900">
+          V1 Inspection Findings → V2 Design Priorities
+        </h3>
+
+        <p class="text-sm text-slate-600">
+          The following issues were identified through physical
+          inspection. Proposed improvements have not yet been
+          verified through V2 testing.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+            <h4 class="font-bold text-slate-900">01 — Hinge Pin Durability</h4>
+            <p class="text-sm text-slate-600">
+              <strong>Observation:</strong> The 3D-printed slotted
+              hinge pin fractured, and print asymmetry was observed.
+            </p>
+            <p class="text-sm text-slate-600">
+              <strong>Planned Improvement:</strong> Review pin
+              geometry, local stress concentrations, and print
+              orientation to improve mechanical durability.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+            <h4 class="font-bold text-slate-900">02 — USB-C Accessibility</h4>
+            <p class="text-sm text-slate-600">
+              <strong>Observation:</strong> Connector clearance and
+              port alignment limited access to the USB-C interface.
+            </p>
+            <p class="text-sm text-slate-600">
+              <strong>Planned Improvement:</strong> Reevaluate
+              connector positioning, opening geometry, and cable
+              clearance.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+            <h4 class="font-bold text-slate-900">03 — PCB Retention</h4>
+            <p class="text-sm text-slate-600">
+              <strong>Observation:</strong> Internal partition walls
+              provided component separation but did not adequately
+              secure the PCB.
+            </p>
+            <p class="text-sm text-slate-600">
+              <strong>Planned Improvement:</strong> Develop dedicated
+              retention features to limit unwanted PCB movement.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+            <h4 class="font-bold text-slate-900">04 — IMU Mounting Stability</h4>
+            <p class="text-sm text-slate-600">
+              <strong>Observation:</strong> The neck IMU requires more
+              secure positioning inside the enclosure.
+            </p>
+            <p class="text-sm text-slate-600">
+              <strong>Planned Improvement:</strong> Refine the sensor
+              mounting interface to improve positional stability
+              and repeatability.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- MECHANICAL & CAD DESIGN SECTION -->
+    <!-- 3. MECHANICAL DESIGN -->
     <section class="space-y-6">
       <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-2xl font-bold text-slate-900">SolidWorks CAD &amp; Enclosure Design</h3>
-        <p class="text-slate-500 text-sm">Mechanical breakdown of custom 3D printed housings (click images to expand).</p>
+        <h2 class="text-2xl font-bold text-slate-900">
+          Mechanical Design & Iterations
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Mechanical requirements, early concepts, and CAD
+          development of the wearable enclosures.
+        </p>
       </div>
 
-      <!-- 1. Ear Hook Module Renders -->
+      <!-- Design Requirements -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6">
+        <h3 class="text-lg font-bold mb-4">Design Requirements & Constraints</h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-600 leading-relaxed">
+          <li><strong>Wearability:</strong> Create compact housings positioned near the ear and neck without skin adhesives.</li>
+          <li><strong>Sensor Placement:</strong> Maintain consistent IMU positioning for relative orientation measurements.</li>
+          <li><strong>Component Integration:</strong> Accommodate the microcontroller, sensors, battery, and wiring.</li>
+          <li><strong>Fabrication:</strong> Design for iterative FDM 3D printing.</li>
+          <li><strong>Assembly:</strong> Provide access for wiring, troubleshooting, and firmware updates.</li>
+        </ul>
+        <p class="text-xs text-slate-500 mt-4">
+          These are qualitative design considerations. Quantitative
+          acceptance criteria and verification procedures are being
+          developed for the next iteration.
+        </p>
+      </div>
+
+      <!-- Concept Development -->
       <div class="space-y-4">
-        <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-ear-listen text-emerald-600"></i> Ear-Hook Tracking Node
-        </h4>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <!-- Card 1: Ear Housing with IMU -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-56 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-              <img src="images/posturbot/earHousingCAD.jpg" alt="Ear Housing with IMU" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Ear Housing Assembly</h5>
-              <p class="text-xs text-slate-500">Integrated slot securing the head-side MPU-6050 IMU flush with the pinna axis.</p>
-            </div>
-          </div>
-
-          <!-- Card 2: Ear Bottom View -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-56 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-              <img src="images/posturbot/ear bottom.jpg" alt="Ear Housing Bottom View" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Ergonomic Base Contour</h5>
-              <p class="text-xs text-slate-500">Curved contact surface designed to improve the intended fit around the ear without relying on adhesives.</p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- 2. Neck Housing Module Renders -->
-      <div class="space-y-4 pt-6">
-        <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-box text-emerald-600"></i> Neck Module (prototype 1)
-        </h4>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-          <!-- Card 1: Neck Module CAD -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-              <img src="images/posturbot/neckHousingCAD.jpg" alt="Neck Housing Assembly" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Main Neck Assembly</h5>
-              <p class="text-xs text-slate-500">Houses the ESP32-C3 microcontroller, neck reference MPU-6050, and power delivery.</p>
-            </div>
-          </div>
-
-          <!-- Card 2: Neck Isometric View -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-              <img src="images/posturbot/neck isometric.jpg" alt="Neck Housing Isometric View" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Isometric Internal Mounts</h5>
-              <p class="text-xs text-slate-500">Internal mounting rails ensuring rigid reference alignment during neck movement.</p>
-            </div>
-          </div>
-
-          <!-- Card 3: Neck Top View -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-              <img src="images/posturbot/neck bottom top view.jpg" alt="Neck Housing Flat Pattern View" class="w-full h-full object-contain">
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Top-Down / Dimensional Layout</h5>
-              <p class="text-xs text-slate-500">Interlocking laser-cut / 3D structural walls engineered for rapid disassembly.</p>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-    
-    <!-- 2-1. Final Neck Housing Module Renders -->
-    <div class="space-y-4 pt-6">
-        <h4 class="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <i class="fa-solid fa-box text-emerald-600"></i> Neck Module (prototype 2)
-        </h4>
-
-        <p>
-          The initial box-shaped enclosure was redesigned into a curved housing to improve the intended fit around the neck. The redesign also focused on securing internal electronics and providing repeated access for wiring adjustments, troubleshooting, and firmware development. A hinged enclosure, USB-C access opening, and external power switch opening were incorporated to support these needs.
+        <h3 class="text-xl font-bold text-slate-900">Concept Development</h3>
+        <p class="text-sm text-slate-600">
+          Initial sketches explored sensor placement, ear-hook geometry,
+          mechanical mounting, and electronics packaging.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <!-- Card 1: Neck Module CAD -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-            <img 
-              width="324" 
-              height="298" 
-              alt="neck housing isometric view"
-              src="https://github.com/user-attachments/assets/f2c01e92-cfc3-41d3-b5fd-355cb2650f59" />            
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/sketch 6.png"
+                   alt="Sensor placement concept"
+                   class="w-full h-full object-contain project-image">
             </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Curved Neck Enclosure</h5>
-              <p class="text-xs text-slate-500">Redesigned the original box-shaped housing into a curved geometry intended to improve fit around the neck.</p>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Sensor Placement</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Exploring head and neck sensor positioning.
+              </p>
             </div>
           </div>
 
-          <!-- Card 2: Neck Top View -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-            <img 
-              width="585" 
-              height="359" 
-              src="https://github.com/user-attachments/assets/7350fb1f-d638-4030-9446-64c1ecd4eedf"
-              alt="Neck Housing inside view" class="w-full h-full object-contain">            
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/sketch 2.png"
+                   alt="Ear-hook concept"
+                   class="w-full h-full object-contain project-image">
             </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900">Internal Layout & Hinged Access</h5>
-              <p class="text-xs text-slate-500"> Designed mounting features for internal electronics and incorporated a hinged enclosure to allow repeated access during assembly and troubleshooting.</p>
-            </div>
-          </div>
-
-          <!-- Card 3: charging port opening design -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-            <img 
-              width="579"
-              height="360" 
-              src="https://github.com/user-attachments/assets/3350ca1a-db0c-4de8-80ec-7ca12a6e778f" 
-              alt="Neck Housing charging port" class="w-full h-full object-contain">            
-            </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900"> USB-C Access Opening</h5>
-              <p class="text-xs text-slate-500"> Added an opening aligned with the ESP32-C3 USB-C connector to provide access for firmware uploads and USB connections.</p>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Ear-Hook Concept</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Investigating wearable attachment and cable routing.
+              </p>
             </div>
           </div>
 
-          <!-- Card 4:  switch opening design -->
-          <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between">
-            <div class="h-48 bg-slate-100 border-b border-slate-200 p-2 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-            <img 
-              width="553" 
-              height="425" 
-              src="https://github.com/user-attachments/assets/b3627c2e-02d9-491e-8e94-b4b00c6d57c6"
-              alt="Neck Housing switch" class="w-full h-full object-contain">            
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/sketch 4.png"
+                   alt="Mechanical mounting concepts"
+                   class="w-full h-full object-contain project-image">
             </div>
-            <div class="p-4 space-y-1">
-              <h5 class="text-sm font-bold text-slate-900"> Power Switch Access</h5>
-              <p class="text-xs text-slate-500"> Integrated a dedicated opening in the enclosure lid to allow operation of the power switch without opening the housing.</p>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Mechanical Mounting</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Preliminary mounting and enclosure assembly concepts.
+              </p>
             </div>
           </div>
 
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/sketch 7.png"
+                   alt="Electronics packaging concept"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Electronics Packaging</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Planning internal component arrangement.
+              </p>
+            </div>
+          </div>
 
+        </div>
+      </div>
+
+      <!-- Ear Module -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900">Ear-Hook Tracking Module</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/earHousingCAD.jpg"
+                   alt="Ear module CAD assembly"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Ear Housing Assembly</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Custom housing incorporating the head-side MPU-6050 IMU.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-56 bg-slate-100 p-4">
+              <img src="images/posturbot/ear bottom.jpg"
+                   alt="Ear module curved geometry"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Ergonomic Base Contour</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Curved geometry intended to fit around the ear
+                without relying on adhesives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neck Module V1 -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900">
+          Neck Module — Initial CAD Concept
+        </h3>
+
+        <p class="text-sm text-slate-600">
+          The initial box-shaped enclosure explored component
+          arrangement and mechanical access.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img src="images/posturbot/neckHousingCAD.jpg"
+                   alt="Initial neck module CAD"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Main Neck Assembly</h4>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img src="images/posturbot/neck isometric.jpg"
+                   alt="Initial internal mounting features"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Internal Mounting Layout</h4>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img src="images/posturbot/neck bottom top view.jpg"
+                   alt="Initial neck housing top view"
+                   class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Top-Down Layout</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Neck Module V2 -->
+      <div class="space-y-4">
+        <h3 class="text-xl font-bold text-slate-900">
+          Neck Module — Curved Enclosure Redesign
+        </h3>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+          The original box-shaped concept was redesigned into a curved
+          enclosure intended to improve fit around the neck.
+          The updated geometry incorporated a hinged cover, internal
+          mounting features, USB-C access, and an external power
+          switch opening. Physical inspection subsequently revealed
+          issues requiring further refinement.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img
+                src="https://github.com/user-attachments/assets/f2c01e92-cfc3-41d3-b5fd-355cb2650f59"
+                alt="Curved neck enclosure CAD"
+                class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Curved Enclosure</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Curved geometry intended to improve neck fit.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img
+                src="https://github.com/user-attachments/assets/7350fb1f-d638-4030-9446-64c1ecd4eedf"
+                alt="Internal layout and hinged access"
+                class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Internal Layout</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Internal features and hinged access for assembly.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img
+                src="https://github.com/user-attachments/assets/3350ca1a-db0c-4de8-80ec-7ca12a6e778f"
+                alt="USB-C opening CAD"
+                class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">USB-C Access</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Opening designed for firmware and USB access.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <div class="h-48 bg-slate-100 p-3">
+              <img
+                src="https://github.com/user-attachments/assets/b3627c2e-02d9-491e-8e94-b4b00c6d57c6"
+                alt="Power switch opening CAD"
+                class="w-full h-full object-contain project-image">
+            </div>
+            <div class="p-4">
+              <h4 class="font-bold text-sm">Power Switch Access</h4>
+              <p class="text-xs text-slate-600 mt-2">
+                Dedicated opening for external switch operation.
+              </p>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ELECTRICAL & CIRCUIT DIAGRAM SECTION -->
+    <!-- 4. ELECTRONICS & SOFTWARE -->
     <section class="space-y-6">
       <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-2xl font-bold text-slate-900">Electrical System &amp; Schematics</h3>
-        <p class="text-slate-500 text-sm">
-          Electrical architecture integrating two MPU-6050 IMUs, an ESP32-C3 microcontroller, battery power, and a vibration motor for haptic feedback.        
+        <h2 class="text-2xl font-bold text-slate-900">
+          Electronics & Software Integration
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Dual-sensor hardware architecture and preliminary
+          wireless monitoring interface.
         </p>
       </div>
 
-      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
-        <div class="h-64 bg-slate-100 rounded-xl overflow-hidden border border-slate-200 p-3 flex items-center justify-center cursor-pointer hover:opacity-95 transition">
-          <img src="images/posturbot/circuit diagram.png" alt="PosturBot Circuit Diagram" class="w-full h-full object-contain">
+      <!-- Electrical -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+        <div class="bg-slate-100 rounded-xl p-4">
+          <img
+            src="images/posturbot/circuit diagram.png"
+            alt="PosturBot electrical architecture diagram"
+            class="w-full h-72 object-contain project-image">
         </div>
+
         <div class="space-y-4">
-          <h4 class="text-lg font-bold text-slate-900">Dual I2C Sensor Architecture</h4>
+          <h3 class="text-xl font-bold text-slate-900">
+            Dual I2C Sensor Architecture
+          </h3>
+
           <p class="text-sm text-slate-600 leading-relaxed">
-            The system integrates two MPU-6050 IMUs on a shared I2C bus, using separate addresses (0x68 for the ear-mounted sensor and 0x69 for the neck reference sensor). An ESP32-C3 microcontroller reads both sensors and processes their measurements to estimate relative head-to-neck orientation.
+            Two MPU-6050 IMUs share an I2C bus using separate
+            addresses: 0x68 for the ear sensor and 0x69 for the
+            neck reference sensor.
           </p>
-          <ul class="space-y-2 text-xs text-slate-700 font-medium">
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-microchip text-emerald-600"></i>
-              <span><strong>Microcontroller & Communication:</strong> The ESP32-C3 collects IMU measurements and transmits posture data wirelessly through Bluetooth Low Energy (BLE).</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i class="fa-solid fa-bolt text-emerald-600"></i>
-              <span><strong>Power & Haptic Feedback:</strong> A LiPo battery powers the wearable electronics, while a transistor-controlled vibration motor provides haptic feedback when posture thresholds are exceeded.</span>
-          </ul>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The ESP32-C3 processes sensor readings and supports
+            Bluetooth Low Energy communication. A LiPo battery
+            powers the system, while a transistor-controlled
+            vibration motor provides haptic feedback.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- SOFTWARE & WEB DASHBOARD SECTION -->
-    <section class="space-y-6">
-      <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-2xl font-bold text-slate-900">Web Bluetooth (BLE) Telemetry &amp; Software</h3>
-        <p class="text-slate-500 text-sm">Prototype dashboard development and preliminary sensor-data integration.</p>
-      </div>
+      <!-- BLE Dashboard -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
-      <div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
-        <div class="min-w-[70%] sm:min-w-[40%] md:min-w-[30%] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
-          <div class="h-[360px] rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center">
-            <img src="images/posturbot/posturbot_dashboard.jpg" alt="PosturBot Web Dashboard" class="w-full h-full object-contain">
-          </div>
-          <p class="text-xs font-mono font-bold text-slate-800 block mt-2 text-center">            
-            Dashboard interface preview using placeholder data. Not representative of validated sensor measurements.
+        <div class="bg-slate-100 rounded-xl p-4">
+          <img
+            src="images/posturbot/posturbot_dashboard.jpg"
+            alt="PosturBot prototype BLE dashboard"
+            class="w-full h-72 object-contain project-image">
+
+          <p class="text-xs text-slate-500 text-center mt-3">
+            Dashboard preview using placeholder data;
+            not validated sensor measurements.
           </p>
         </div>
 
         <div class="space-y-4">
-          <h4 class="text-lg font-bold text-slate-900">Prototype Web Dashboard</h4>
+          <h3 class="text-xl font-bold text-slate-900">
+            Web Bluetooth Dashboard
+          </h3>
+
           <p class="text-sm text-slate-600 leading-relaxed">
-            Developed a browser-based interface using the Web Bluetooth API to support wireless communication with the ESP32-C3, without requiring a dedicated mobile application.
+            Developed a browser-based interface using the Web
+            Bluetooth API for communication with the ESP32-C3,
+            without requiring a dedicated mobile application.
           </p>
-          <ul class="space-y-2 text-xs text-slate-600">
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
-              <span><strong>Wireless Communication:</strong> Implemented a BLE-based interface for receiving sensor information from the ESP32-C3.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
-              <span><strong>Sensor Data Processing:</strong> Implemented preliminary relative-angle estimation using dual IMUs. Observed unexpected angle readings and inconsistent posture classification during prototype testing. Currently investigating potential differences between the IMU mounting orientations and the coordinate axes assumed in the software.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <i class="fa-solid fa-check text-emerald-600 mt-0.5"></i>
-              <span><strong>Posture Feedback Logic:</strong> Developed preliminary angle-threshold logic for visual posture alerts, with further testing required to evaluate reliability.</span>
-            </li>
+
+          <ul class="list-disc pl-5 text-sm text-slate-600 space-y-2">
+            <li>Implemented preliminary BLE sensor-data communication.</li>
+            <li>Developed preliminary relative-angle estimation using dual IMUs.</li>
+            <li>Implemented initial threshold-based posture feedback logic.</li>
+            <li>Identified unexpected angle readings and inconsistent posture classification.</li>
           </ul>
+
           <p class="text-sm text-slate-600 leading-relaxed">
-            <strong>Development Status:</strong>The dashboard image illustrates the current interface design using placeholder data. The displayed graph does not represent validated measurements. End-to-end testing, sensor calibration, and system validation remain in progress.
+            Sensor orientation and coordinate-axis assumptions
+            require further investigation. The dashboard graph
+            shown here uses placeholder data; integrated
+            validation remains in progress.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Physical Prototype Assembly & Evaluation SECTION -->
-    <section class="space-y-6">
+    <!-- 5. TESTING & NEXT STEPS -->
+    <section class="space-y-5">
       <div class="border-b border-slate-200 pb-3">
-        <h3 class="text-2xl font-bold text-slate-900">Physical Prototype Assembly &amp; Evaluation</h3>
-      </div>  
-      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-4">
-        <p class="text-xs text-slate-500 mb-3">
-            Scroll horizontally to view additional prototype photos →
+        <h2 class="text-2xl font-bold text-slate-900">
+          Testing Status & Next Steps
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Current development status and planned engineering work.
         </p>
-        <div id="ps7-sketch-container"
-            class="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-slate-100">
-          <!-- Photo 1: Assembled prototype -->
-          <div class="w-[260px] sm:w-[300px] md:w-[340px] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
-            <div class="h-[360px] rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center">
-              <img
-                src="https://github.com/user-attachments/assets/f61b1e33-3758-4f99-bf85-2ae4a5cc898a"
-                alt="Assembled PosturBot prototype with open neck enclosure"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <p class="text-xs text-slate-700 mt-3 text-center leading-relaxed">
-              Assembled PosturBot prototype showing the open neck enclosure, internal electronics, and connected head module.
-            </p>
-          </div>
+      </div>
 
-          <!-- Photo 2: Neck module electronics -->
-          <div class="w-[260px] sm:w-[300px] md:w-[340px] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
-            <div class="h-[360px] rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center">
-              <img
-                src="https://github.com/user-attachments/assets/20e194d6-0233-4e74-af0f-1903b29c79d9"
-                alt="Internal electronics arrangement in the neck module"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <p class="text-xs text-slate-700 mt-3 text-center leading-relaxed">
-              Internal arrangement of the ESP32-C3, MPU-6050 IMU, and wiring within the 3D-printed neck enclosure.
-            </p>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <!-- Photo 3: Physical prototype -->
-          <div class="w-[260px] sm:w-[300px] md:w-[340px] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
-            <div class="h-[360px] rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center">
-              <img
-                src="https://github.com/user-attachments/assets/c55fdbf9-684e-404f-bbea-67496bca4238"
-                alt="Curved neck enclosure and connected head module"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <p class="text-xs text-slate-700 mt-3 text-center leading-relaxed">
-              Physical prototype showing the curved neck enclosure, cable routing, and connected head module.
-            </p>
-          </div>
-
-          <!-- Photo 4: Head module IMU -->
-          <div class="w-[260px] sm:w-[300px] md:w-[340px] bg-white border border-slate-200 rounded-xl p-3 shadow-sm snap-start flex-shrink-0">
-            <div class="h-[360px] rounded-lg overflow-hidden border border-slate-100 bg-slate-50 flex items-center justify-center">
-              <img
-                src="https://github.com/user-attachments/assets/0a2f67c1-d865-4ad4-ad38-d9042aacf70c"
-                alt="MPU-6050 IMU installed inside the head module"
-                class="w-full h-full object-contain"
-              />
-            </div>
-            <p class="text-xs text-slate-700 mt-3 text-center leading-relaxed">
-              MPU-6050 IMU positioned inside the 3D-printed head module during prototype assembly.
-            </p>
-          </div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-emerald-700 mb-4">
+            Completed / Observed
+          </h3>
+          <ul class="list-disc pl-5 space-y-3 text-sm text-slate-600">
+            <li>Developed custom SolidWorks enclosure designs.</li>
+            <li>Fabricated and assembled physical 3D-printed housings.</li>
+            <li>Integrated dual IMUs, ESP32-C3, battery, and vibration motor.</li>
+            <li>Established preliminary BLE communication.</li>
+            <li>Inspected V1 mechanical issues involving hinge durability, USB-C clearance, PCB retention, and IMU mounting.</li>
+          </ul>
         </div>
 
-        <!-- Physical Prototype Assembly Description -->
-        <div class="mt-6 space-y-4">
-
-          <p class="text-sm text-slate-600 leading-relaxed">
-            The current PosturBot prototype integrates custom 3D-printed
-            head and neck enclosures with dual MPU-6050 IMUs, an ESP32-C3
-            microcontroller, and wired connections between the modules.
-          </p>
-
-          <p class="text-sm text-slate-600 leading-relaxed">
-            The neck enclosure incorporates a hinged cover for access
-            to internal electronics, while the head module houses the
-            second IMU for relative orientation measurements.
-          </p>
-
-          <h4 class="text-md font-bold text-slate-900">
-            Prototype Assembly Observations
-          </h4>
-
-          <ul class="space-y-3 text-sm text-slate-600 leading-relaxed list-disc pl-5">
-            <li>
-              <strong>Electronics Integration:</strong>
-              Assembled and soldered the electronics within the 3D-printed
-              housings, identifying challenges with internal component
-              placement and wire management.
-            </li>
-
-            <li>
-              <strong>Mechanical Durability:</strong>
-              Observed limitations in the printed hinge and
-              component-retention features, highlighting areas
-              for future design revisions.
-            </li>
-
-            <li>
-              <strong>Sensor Orientation:</strong>
-              Identified unexpected angle readings and inconsistent
-              posture classification during preliminary testing.
-              Currently investigating whether the physical IMU mounting
-              orientations differ from the coordinate axes assumed
-              in the software.
-            </li>
+        <div class="bg-white border border-slate-200 rounded-2xl p-6">
+          <h3 class="text-lg font-bold text-amber-700 mb-4">
+            Planned / In Progress
+          </h3>
+          <ul class="list-disc pl-5 space-y-3 text-sm text-slate-600">
+            <li>Define measurable V2 mechanical design requirements.</li>
+            <li>Redesign hinge geometry and component-retention features.</li>
+            <li>Improve USB-C access and sensor mounting stability.</li>
+            <li>Investigate IMU orientation and relative-angle estimation errors.</li>
+            <li>Fabricate and evaluate the revised enclosure.</li>
+            <li>Perform integrated system verification and validation.</li>
           </ul>
-
-          <p class="text-sm text-slate-600 leading-relaxed">
-            <strong class="text-slate-900">Current Status:</strong>
-            Physical prototype assembly and BLE communication have
-            been achieved. Mechanical design refinements,
-            sensor-axis troubleshooting, and integrated system
-            validation remain in progress.
-          </p>
-
         </div>
 
       </div>
+
+      <div class="bg-slate-100 border border-slate-200 rounded-xl p-5">
+        <p class="text-sm text-slate-600 leading-relaxed">
+          <strong class="text-slate-900">Engineering Focus:</strong>
+          The next development phase emphasizes translating physical
+          prototype observations into measurable design requirements,
+          implementing mechanical revisions, and evaluating whether
+          those revisions address the identified limitations.
+        </p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="border-t border-slate-200 mt-20 py-8 text-center text-slate-500 text-sm bg-white">
-    Jenny Choung Portfolio — PosturBot Project Showcase
+  <!-- Image Lightbox -->
+  <div id="imageModal"
+       class="hidden fixed inset-0 z-50 bg-slate-950/85 p-4 flex items-center justify-center">
+
+    <div class="relative bg-white rounded-2xl p-4 max-w-5xl max-h-[92vh] w-full flex flex-col items-center">
+      <button id="closeModal"
+              class="absolute top-3 right-3 w-9 h-9 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200 z-10"
+              aria-label="Close image">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <img id="modalImg"
+           src=""
+           alt="Enlarged project image"
+           class="max-w-full max-h-[78vh] object-contain rounded-lg">
+
+      <p id="modalCaption" class="text-xs text-slate-600 mt-3 text-center"></p>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-200 bg-white mt-16 py-8 text-center text-sm text-slate-500">
+    Jenny Choung | PosturBot Engineering Case Study
   </footer>
 
-  <!-- LIGHTBOX INTERACTIVE SCRIPT -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('imageModal');
-      const modalImg = document.getElementById('modalImg');
-      const modalCaption = document.getElementById('modalCaption');
-      const closeModalBtn = document.getElementById('closeModal');
+    document.addEventListener("DOMContentLoaded", function () {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+      const modalCaption = document.getElementById("modalCaption");
 
-      // Add click handlers to all content images inside main section
-      document.querySelectorAll('main img').forEach(img => {
-        img.addEventListener('click', () => {
+      document.querySelectorAll(".project-image").forEach(function (img) {
+        img.style.cursor = "zoom-in";
+
+        img.addEventListener("click", function () {
           modalImg.src = img.src;
-          modalCaption.textContent = img.alt || 'Project Detail View';
-          modal.classList.remove('hidden');
+          modalCaption.textContent = img.alt;
+          modal.classList.remove("hidden");
         });
       });
 
-      // Close modal on 'X' button click
-      closeModalBtn.addEventListener('click', () => {
-        modal.classList.add('hidden');
+      function closeModal() {
+        modal.classList.add("hidden");
+        modalImg.src = "";
+      }
+
+      document.getElementById("closeModal")
+        .addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeModal();
       });
 
-      // Close modal when clicking outside the content image (on overlay)
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.add('hidden');
-        }
-      });
-
-      // Close modal on 'Escape' key press
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-          modal.classList.add('hidden');
-        }
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeModal();
       });
     });
   </script>
