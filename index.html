@@ -67,36 +67,70 @@
         </div>
       </div>
     </section>
+   
+    <!-- 2. FEATURED POSTURBOT PROJECT -->
+    <section class="bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-slate-100 p-8 sm:p-10 rounded-3xl border border-emerald-500/20 shadow-sm">
 
-    <!-- 2. FEATURED POSTURBOT HERO BANNER ONLY -->
-    <section class="bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-slate-100 p-8 sm:p-10 rounded-3xl border border-emerald-500/20 shadow-sm relative overflow-hidden space-y-4">
-      <div class="flex flex-wrap justify-between items-center gap-4">
-        <div class="inline-flex items-center space-x-2 bg-emerald-600/10 text-emerald-700 border border-emerald-600/20 px-3 py-1 rounded-full text-xs font-bold">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Dual-IMU Wearable System</span>
-        </div>
-        <a href="posturbot.html" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
-          Full PosturBot Technical Page <i class="fa-solid fa-arrow-right"></i>
+      <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+        <span class="inline-flex items-center gap-2 bg-emerald-600/10 text-emerald-700 border border-emerald-600/20 px-3 py-1 rounded-full text-xs font-bold">
+          Featured Engineering Project
+        </span>
+
+        <a href="posturbot.html"
+          class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
+          View Engineering Case Study
+          <i class="fa-solid fa-arrow-right"></i>
         </a>
       </div>
-      
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 leading-tight">
-        PosturBot
-      </h2>
-      <h3 class="text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
-        Cervical Posture Monitor for Tech Neck
-      </h3>
-      <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl">
-        A non-adhesive wearable system that uses two IMU sensors to detect forward head movement by measuring the head's motion relative to the neck.
-      </p>
-      <div class="pt-2 flex flex-wrap gap-2 text-xs font-mono text-emerald-800">
-        <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200 shadow-sm">ESP32-C3</span>
-        <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200 shadow-sm">2x MPU-6050</span>
-        <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200 shadow-sm">Web Bluetooth (BLE)</span>
-        <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200 shadow-sm">SolidWorks CAD</span>
-        <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200 shadow-sm">Complementary Filter</span>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <!-- Project Information -->
+        <div class="space-y-4">
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900">
+            PosturBot
+          </h2>
+
+          <h3 class="text-xl sm:text-2xl font-bold text-slate-800">
+            Wearable Cervical Posture Monitor
+          </h3>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Designed and fabricated custom 3D-printed wearable housings
+            integrating dual IMUs, an ESP32-C3 microcontroller, and haptic
+            feedback. Built a physical prototype and identified mechanical
+            issues involving hinge durability, component retention, and
+            connector accessibility to guide the next design iteration.
+          </p>
+
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-emerald-800">
+            <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200">SolidWorks CAD</span>
+            <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200">3D Printing</span>
+            <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200">ESP32-C3</span>
+            <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200">Dual IMUs</span>
+            <span class="bg-white/80 px-2.5 py-1 rounded border border-slate-200">BLE</span>
+          </div>
+        </div>
+
+        <!-- Physical Prototype Image -->
+        <a href="posturbot.html"
+          class="block bg-white/80 rounded-2xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition">
+
+          <img
+            src="https://github.com/user-attachments/assets/f61b1e33-3758-4f99-bf85-2ae4a5cc898a"
+            alt="PosturBot physical prototype with open enclosure and integrated electronics"
+            class="w-full h-64 sm:h-80 object-contain rounded-xl"
+            loading="lazy"
+          />
+
+          <p class="text-xs text-slate-500 text-center mt-3">
+            Physical Prototype — 3D-Printed Enclosure & Electronics Integration
+          </p>
+        </a>
+
       </div>
     </section>
+
 
     <!-- 3. OTHER ENGINEERING PROJECTS SECTION -->
     <section class="space-y-6 pt-2">
