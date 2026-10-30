@@ -4,37 +4,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gliding Snake Robot Simulation | Jenny Choung</title>
+
+  <meta name="description"
+        content="MATLAB/Simulink simulation and experimental investigation of a bioinspired gliding snake robot by Jenny Choung.">
+
+  <title>Gliding Snake Robot Dynamics | Jenny Choung</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
   </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 min-h-screen">
 
-  <!-- Navigation -->
+  <!-- NAVIGATION -->
   <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
-    <a href="index.html"
-       class="text-sm font-semibold text-slate-600 hover:text-indigo-600">
+
+    <a
+      href="index.html"
+      class="text-sm font-semibold text-slate-600 hover:text-indigo-600"
+    >
       &larr; Back to Portfolio
     </a>
 
     <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
       CMU Bioinspired Robotics
     </span>
+
   </header>
 
   <main class="max-w-6xl mx-auto px-6 pb-16 space-y-10">
 
-    <!-- 1. PROJECT OVERVIEW -->
+    <!-- PROJECT OVERVIEW -->
     <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-7">
 
       <div class="space-y-4">
@@ -68,6 +81,7 @@
           <span class="bg-slate-100 px-3 py-1 rounded">Simulation Visualization</span>
           <span class="bg-slate-100 px-3 py-1 rounded">Parameter Studies</span>
         </div>
+
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -76,8 +90,10 @@
           <h3 class="text-xs uppercase font-bold text-slate-500 mb-2">
             Project Type
           </h3>
+
           <p class="text-sm text-slate-700 leading-relaxed">
-            Team-based bioinspired robotics research and experimentation.
+            Team-based bioinspired robotics research
+            and experimentation.
           </p>
         </div>
 
@@ -85,10 +101,11 @@
           <h3 class="text-xs uppercase font-bold text-indigo-700 mb-2">
             My Primary Responsibility
           </h3>
+
           <p class="text-sm text-slate-700 leading-relaxed">
-            Development and implementation of the MATLAB/Simulink
-            simulation, including model integration, visualization,
-            and simulation studies.
+            Development and implementation of the
+            MATLAB/Simulink simulation, including model
+            integration, visualization, and simulation studies.
           </p>
         </div>
 
@@ -96,6 +113,7 @@
           <h3 class="text-xs uppercase font-bold text-slate-500 mb-2">
             Collaborative Work
           </h3>
+
           <p class="text-sm text-slate-700 leading-relaxed">
             Physical experiments, interpretation of results,
             and overall project development with teammates.
@@ -103,23 +121,27 @@
         </div>
 
       </div>
+
     </section>
 
-    <!-- 2. RESEARCH QUESTION -->
+    <!-- RESEARCH QUESTION -->
     <section class="space-y-5">
 
       <div class="border-b border-slate-200 pb-3">
         <h2 class="text-2xl font-bold text-slate-900">
           Research Question & Engineering Approach
         </h2>
+
         <p class="text-sm text-slate-500 mt-2">
-          Investigating the influence of lateral undulation on gliding performance.
+          Investigating the influence of lateral undulation
+          on gliding performance.
         </p>
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-7">
 
         <div class="space-y-3">
+
           <h3 class="text-lg font-bold text-slate-900">
             Research Question
           </h3>
@@ -136,9 +158,11 @@
             and undulation parameters affected simulated
             flight behavior.
           </p>
+
         </div>
 
         <div class="space-y-3">
+
           <h3 class="text-lg font-bold text-slate-900">
             Engineering Approach
           </h3>
@@ -155,22 +179,27 @@
             Physical experiments were conducted collaboratively
             to investigate the robot's behavior.
           </p>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- 3. SIMULATION DEVELOPMENT -->
+    <!-- SIMULATION DEVELOPMENT -->
     <section class="space-y-5">
 
       <div class="border-b border-slate-200 pb-3">
+
         <h2 class="text-2xl font-bold text-slate-900">
           Simulation Development
         </h2>
+
         <p class="text-sm text-slate-500 mt-2">
           Building and integrating a new simulation using
           established modeling methods.
         </p>
+
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
@@ -182,10 +211,9 @@
         <p class="text-sm text-slate-600 leading-relaxed">
           I was responsible for developing the MATLAB/Simulink
           simulation for the gliding snake robot. Starting without
-          an existing snake-specific simulation, I used
-          published dynamics models as technical references
-          and AI-assisted coding to build and integrate
-          the simulation components.
+          an existing snake-specific simulation, I used published
+          dynamics models as technical references and AI-assisted
+          coding to build and integrate the simulation components.
         </p>
 
         <p class="text-sm text-slate-600 leading-relaxed">
@@ -203,10 +231,12 @@
 
       </div>
 
-      <!-- Subsystems -->
+      <!-- SUBSYSTEM CARDS -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
+        <!-- JOINT MOTION -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+
           <span class="text-xs font-bold text-indigo-600 uppercase">
             Subsystem 01
           </span>
@@ -225,9 +255,12 @@
           <div class="bg-slate-100 rounded-lg p-4 text-center font-mono text-sm">
             &theta;(n,t) = A sin(&Omega;n + &omega;t)
           </div>
+
         </div>
 
+        <!-- JOINT ACTUATION -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+
           <span class="text-xs font-bold text-indigo-600 uppercase">
             Subsystem 02
           </span>
@@ -237,19 +270,17 @@
           </h3>
 
           <p class="text-sm text-slate-600 leading-relaxed">
-            The simulation included a joint-control representation
-            to connect commanded segment motion with the
-            robot's modeled actuation behavior.
+            A PD-based servo control block was integrated
+            with the joint-angle command and multibody
+            dynamics model to represent the robot's joint
+            actuation within the simulation.
           </p>
 
-          <p class="text-xs text-slate-500">
-            Controller implementation and actuator parameters
-            should be checked against the original model
-            before adding more detailed performance claims.
-          </p>
         </div>
 
+        <!-- DYNAMICS -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+
           <span class="text-xs font-bold text-indigo-600 uppercase">
             Subsystem 03
           </span>
@@ -269,9 +300,12 @@
             between undulation, flight conditions,
             and predicted glide distance.
           </p>
+
         </div>
 
+        <!-- KINEMATICS -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+
           <span class="text-xs font-bold text-indigo-600 uppercase">
             Subsystem 04
           </span>
@@ -291,15 +325,105 @@
             a separate gait-simulation example rather
             than an existing gliding-snake model.
           </p>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- 4. DEMONSTRATION -->
+    <!-- SIMULATION ARCHITECTURE & VISUALIZATION -->
     <section class="space-y-5">
 
       <div class="border-b border-slate-200 pb-3">
+
+        <h2 class="text-2xl font-bold text-slate-900">
+          Simulation Architecture & Visualization
+        </h2>
+
+        <p class="text-sm text-slate-500 mt-2">
+          MATLAB/Simulink model architecture and
+          animated 3D flight simulation.
+        </p>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <!-- SIMULINK MODEL IMAGE -->
+        <figure class="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
+
+          <img
+            src="https://github.com/user-attachments/assets/f1ea5eaa-d9db-4d0c-bcbd-b07a72ab06a1"
+            alt="MATLAB Simulink block diagram showing joint motion generation, servo control, multibody dynamics, forward kinematics, and animation"
+            class="w-full aspect-video object-contain bg-slate-50 rounded-xl"
+            loading="lazy"
+          >
+
+          <figcaption class="space-y-2">
+
+            <h3 class="text-base font-bold text-slate-900">
+              Simulink Model Architecture
+            </h3>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Integrated simulation model connecting joint
+              motion generation, PD control, multibody dynamics,
+              forward kinematics, and animation.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+        <!-- ANIMATED SIMULATION -->
+        <figure class="bg-white border border-slate-200 rounded-2xl p-5 space-y-4">
+
+          <video
+            class="w-full aspect-video object-contain bg-slate-50 rounded-xl"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            controls
+            aria-label="3D flight simulation of the gliding snake robot"
+          >
+
+            <source
+              src="https://github.com/user-attachments/assets/27e08175-ba1b-4bbf-b2fe-309bdbed4cbb"
+              type="video/mp4"
+            >
+
+            Your browser does not support HTML5 video.
+
+          </video>
+
+          <figcaption class="space-y-2">
+
+            <h3 class="text-base font-bold text-slate-900">
+              3D Flight Simulation
+            </h3>
+
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Animated MATLAB visualization displaying the
+              simulated flight trajectory, segment configuration,
+              and landing location.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </section>
+
+    <!-- PROJECT VIDEO -->
+    <section class="space-y-5">
+
+      <div class="border-b border-slate-200 pb-3">
+
         <h2 class="text-2xl font-bold text-slate-900">
           Simulation & Physical Experiment Demonstration
         </h2>
@@ -308,11 +432,13 @@
           Team presentation covering simulation development
           and physical testing.
         </p>
+
       </div>
 
       <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 space-y-5">
 
         <div class="aspect-video bg-black rounded-xl overflow-hidden">
+
           <iframe
             class="w-full h-full"
             src="https://www.youtube.com/embed/giUG7wqDaCI?start=35"
@@ -322,9 +448,11 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
+
         </div>
 
         <div class="space-y-3">
+
           <h3 class="text-lg font-bold text-slate-900">
             Project Presentation
           </h3>
@@ -339,18 +467,22 @@
             href="https://www.youtube.com/watch?v=giUG7wqDaCI"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-800">
+            class="inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-800"
+          >
             Watch Full Presentation on YouTube &rarr;
           </a>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- 5. RESULTS -->
+    <!-- RESULTS -->
     <section class="space-y-5">
 
       <div class="border-b border-slate-200 pb-3">
+
         <h2 class="text-2xl font-bold text-slate-900">
           Results & Engineering Insights
         </h2>
@@ -359,11 +491,14 @@
           Findings reported from the team's simulation
           and experimental investigation.
         </p>
+
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 
+        <!-- EXPERIMENTAL RESULT -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+
           <h3 class="text-lg font-bold text-slate-900">
             Launch Velocity & Glide Distance
           </h3>
@@ -376,23 +511,22 @@
           </p>
 
           <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5 text-center">
+
             <p class="text-3xl font-extrabold text-indigo-700">
               +8.7%
             </p>
+
             <p class="text-xs text-slate-600 mt-2">
               Reported increase in mean glide distance
             </p>
+
           </div>
 
-          <p class="text-xs text-slate-500">
-            Values retained from the original project
-            documentation; statistical analysis and
-            experimental conditions should be reviewed
-            against the original report.
-          </p>
         </div>
 
+        <!-- SIMULATION RESULT -->
         <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+
           <h3 class="text-lg font-bold text-slate-900">
             Undulation Amplitude
           </h3>
@@ -412,22 +546,27 @@
           </p>
 
           <div class="bg-slate-100 border border-slate-200 rounded-xl p-4">
+
             <p class="text-sm font-semibold text-slate-800">
               Engineering Interpretation
             </p>
+
             <p class="text-sm text-slate-600 mt-2 leading-relaxed">
               Increasing undulation does not necessarily
               improve performance indefinitely.
               Motion parameters must be evaluated
               alongside their aerodynamic effects.
             </p>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- 6. TAKEAWAYS -->
+    <!-- ENGINEERING TAKEAWAYS -->
     <section class="bg-slate-100 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
 
       <h2 class="text-2xl font-bold text-slate-900">
@@ -453,29 +592,44 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="border-t border-slate-200 bg-white py-7">
+
     <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+
       <p class="text-xs text-slate-500">
         Jenny Choung · Carnegie Mellon University
       </p>
 
       <div class="flex gap-5 text-xs font-medium text-slate-600">
-        <a href="index.html" class="hover:text-indigo-600">
+
+        <a
+          href="index.html"
+          class="hover:text-indigo-600"
+        >
           Portfolio
         </a>
-        <a href="https://github.com/KyungUnGi"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="hover:text-indigo-600">
+
+        <a
+          href="https://github.com/KyungUnGi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-indigo-600"
+        >
           GitHub
         </a>
-        <a href="mailto:kchoung@andrew.cmu.edu"
-           class="hover:text-indigo-600">
+
+        <a
+          href="mailto:kchoung@andrew.cmu.edu"
+          class="hover:text-indigo-600"
+        >
           Email
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 </body>
