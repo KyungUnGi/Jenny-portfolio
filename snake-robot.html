@@ -1,186 +1,480 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undulating Gliding Snake Robot Dynamics | Jenny Choung</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Gliding Snake Robot Simulation | Jenny Choung</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     body { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-  <!-- Top Bar Navigation (Standard Portfolio Header) -->
-  <div class="max-w-6xl mx-auto px-6 pt-6 flex items-center justify-between">
-    <a href="index.html" class="inline-flex items-center text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
-      <span class="mr-2">&larr;</span> Back to Portfolio
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- Navigation -->
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="index.html"
+       class="text-sm font-semibold text-slate-600 hover:text-indigo-600">
+      &larr; Back to Portfolio
     </a>
+
     <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
-      24-775 Bioinspired Robot Design & Experimentation
+      CMU Bioinspired Robotics
     </span>
-  </div>
+  </header>
 
-  <!-- Primary Wrapper Card -->
-  <div class="max-w-6xl mx-auto px-6 py-6">
-    <div class="bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm space-y-12">
+  <main class="max-w-6xl mx-auto px-6 pb-16 space-y-10">
 
-      <!-- Header Section -->
+    <!-- 1. PROJECT OVERVIEW -->
+    <section class="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-7">
+
       <div class="space-y-4">
-        <div class="inline-flex items-center">
-          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-3 py-1 rounded-md border border-indigo-100">
-            Bioinspired Robotics & Dynamic Simulation
-          </span>
-        </div>
 
-        <div class="flex flex-wrap items-center gap-3">
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Undulating Gliding Snake Robot Dynamics
-          </h1>
-          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
-            &bull; Multi-Body Aerial Simulation & Hardware
-          </span>
-        </div>
+        <span class="inline-block text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-100 rounded-md px-3 py-1">
+          Bioinspired Robotics · Dynamic Simulation
+        </span>
 
-        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-4xl">
-          Investigating whether aerial lateral undulation enhances horizontal glide distance in <em>Chrysopelea paradisi</em>-inspired robotic systems through high-fidelity multi-body dynamic modeling, aerodynamic simulation, and physical experimental validation.
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          Undulating Gliding Snake Robot Dynamics
+        </h1>
+
+        <p class="text-lg text-slate-600 font-medium">
+          MATLAB/Simulink Multi-Body Simulation & Experimental Investigation
         </p>
 
-        <!-- Technical Skill Pills -->
-        <div class="flex flex-wrap gap-2 pt-2">
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">MATLAB / Simulink</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Multi-Body Kinematics</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Stateflow Modeling</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Aerodynamic Lift/Drag Modeling</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Level-2 S-Function 3D Animation</span>
-          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-3 py-1 rounded-md">Parametric Sweeps</span>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+          A team-based robotics project investigating how aerial
+          lateral undulation influences the gliding performance of
+          a bioinspired snake robot. The project combined a
+          MATLAB/Simulink simulation with physical experiments
+          to explore the relationship between undulation,
+          aerodynamic behavior, and horizontal travel distance.
+        </p>
+
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="bg-slate-100 px-3 py-1 rounded">MATLAB / Simulink</span>
+          <span class="bg-slate-100 px-3 py-1 rounded">Multi-Body Dynamics</span>
+          <span class="bg-slate-100 px-3 py-1 rounded">Kinematics</span>
+          <span class="bg-slate-100 px-3 py-1 rounded">Aerodynamic Modeling</span>
+          <span class="bg-slate-100 px-3 py-1 rounded">Simulation Visualization</span>
+          <span class="bg-slate-100 px-3 py-1 rounded">Parameter Studies</span>
         </div>
       </div>
 
-      <!-- My Technical Contribution Spotlight -->
-      <div class="bg-indigo-50/40 border border-indigo-100 rounded-2xl p-6 sm:p-8 space-y-4">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold text-slate-900">My Primary Technical Contribution</h2>
-          <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-indigo-100 text-indigo-800">Lead Simulation Engineer</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <h3 class="text-xs uppercase font-bold text-slate-500 mb-2">
+            Project Type
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Team-based bioinspired robotics research and experimentation.
+          </p>
         </div>
-        <p class="text-sm text-slate-700 leading-relaxed">
-          I developed the end-to-end <strong>Simulink multi-body simulation environment</strong> that predicted aerial flight dynamics and established critical launch parameter baselines prior to physical testing.
+
+        <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5">
+          <h3 class="text-xs uppercase font-bold text-indigo-700 mb-2">
+            My Primary Responsibility
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Development and implementation of the MATLAB/Simulink
+            simulation, including model integration, visualization,
+            and simulation studies.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-5">
+          <h3 class="text-xs uppercase font-bold text-slate-500 mb-2">
+            Collaborative Work
+          </h3>
+          <p class="text-sm text-slate-700 leading-relaxed">
+            Physical experiments, interpretation of results,
+            and overall project development with teammates.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2. RESEARCH QUESTION -->
+    <section class="space-y-5">
+
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">
+          Research Question & Engineering Approach
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Investigating the influence of lateral undulation on gliding performance.
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div class="bg-white p-4 rounded-xl border border-indigo-100/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 mb-1">9-Element State Space</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Formulated the equations of motion across forward position, lateral displacement, altitude, and 6 active inter-module joint coordinates, decoupling horizontal dynamics from gravity.
-            </p>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-indigo-100/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 mb-1">Per-Segment Aerodynamics</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Modeled dynamic lift and drag forces per segment using empirical angle-of-attack lookup tables, accounting for local sweep angles and instantaneous relative velocity.
-            </p>
-          </div>
-          <div class="bg-white p-4 rounded-xl border border-indigo-100/80 shadow-xs">
-            <h3 class="font-bold text-slate-900 mb-1">Real-Time S-Function 3D Rendering</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Constructed a custom Level-2 MATLAB S-function rendering the 7-segment chain in real time, validating flight phases: on-platform, airborne trajectory, and touchdown.
-            </p>
-          </div>
-        </div>
       </div>
 
-      <!-- Project Video Showcase -->
-      <div class="space-y-4">
-        <div class="flex items-center justify-between">
-          <h2 class="text-xl font-bold text-slate-900">Project Demonstration & Experimental Testing</h2>
-          <a href="https://www.youtube.com/watch?v=giUG7wqDaCI" target="_blank" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition">Watch on YouTube &rarr;</a>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-7">
+
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-slate-900">
+            Research Question
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Flying snakes use lateral body undulation while gliding.
+            This project explored whether introducing similar
+            motion into a multi-segment robotic system could
+            improve horizontal gliding distance.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The investigation considered how launch conditions
+            and undulation parameters affected simulated
+            flight behavior.
+          </p>
         </div>
+
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-slate-900">
+            Engineering Approach
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            I developed a MATLAB/Simulink model using dynamics
+            relationships and aerodynamic modeling approaches
+            referenced from existing research.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The simulation was used to explore flight trajectories
+            and the effects of undulation parameters.
+            Physical experiments were conducted collaboratively
+            to investigate the robot's behavior.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. SIMULATION DEVELOPMENT -->
+    <section class="space-y-5">
+
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">
+          Simulation Development
+        </h2>
+        <p class="text-sm text-slate-500 mt-2">
+          Building and integrating a new simulation using
+          established modeling methods.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-5">
+
+        <h3 class="text-lg font-bold text-slate-900">
+          My Technical Contribution
+        </h3>
+
         <p class="text-sm text-slate-600 leading-relaxed">
-          Full presentation including the multi-body dynamic simulation pipeline, the sense-plan-act launch architecture, and physical wind/treadmill launch trials across 1.1 m/s and 1.8 m/s test velocities.
+          I was responsible for developing the MATLAB/Simulink
+          simulation for the gliding snake robot. Starting without
+          an existing snake-specific simulation, I used
+          published dynamics models as technical references
+          and AI-assisted coding to build and integrate
+          the simulation components.
         </p>
-        <div class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-black shadow-md">
-          <iframe 
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+          For visualization, I referenced an animation
+          implementation from a separate academic gait-simulation
+          example and adapted the approach to represent
+          the multi-segment snake robot.
+        </p>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+          The resulting simulation provided a way to investigate
+          how changes in motion parameters affected predicted
+          gliding behavior.
+        </p>
+
+      </div>
+
+      <!-- Subsystems -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase">
+            Subsystem 01
+          </span>
+
+          <h3 class="text-lg font-bold text-slate-900">
+            Joint Motion Generation
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            A traveling-wave representation was used to describe
+            lateral undulation across the robot's connected segments.
+            Motion parameters such as amplitude and frequency
+            were used to investigate different movement patterns.
+          </p>
+
+          <div class="bg-slate-100 rounded-lg p-4 text-center font-mono text-sm">
+            &theta;(n,t) = A sin(&Omega;n + &omega;t)
+          </div>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase">
+            Subsystem 02
+          </span>
+
+          <h3 class="text-lg font-bold text-slate-900">
+            Joint Actuation
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The simulation included a joint-control representation
+            to connect commanded segment motion with the
+            robot's modeled actuation behavior.
+          </p>
+
+          <p class="text-xs text-slate-500">
+            Controller implementation and actuator parameters
+            should be checked against the original model
+            before adding more detailed performance claims.
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase">
+            Subsystem 03
+          </span>
+
+          <h3 class="text-lg font-bold text-slate-900">
+            Dynamics & Aerodynamics
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Existing research-based equations and aerodynamic
+            relationships were incorporated to represent
+            the motion of the connected segments during flight.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The model was used to examine the interaction
+            between undulation, flight conditions,
+            and predicted glide distance.
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase">
+            Subsystem 04
+          </span>
+
+          <h3 class="text-lg font-bold text-slate-900">
+            Kinematics & Visualization
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The simulated segment positions were used
+            to visualize the robot's motion and flight
+            trajectory through a MATLAB-based animation.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The visualization approach was adapted from
+            a separate gait-simulation example rather
+            than an existing gliding-snake model.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. DEMONSTRATION -->
+    <section class="space-y-5">
+
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">
+          Simulation & Physical Experiment Demonstration
+        </h2>
+
+        <p class="text-sm text-slate-500 mt-2">
+          Team presentation covering simulation development
+          and physical testing.
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 sm:p-7 space-y-5">
+
+        <div class="aspect-video bg-black rounded-xl overflow-hidden">
+          <iframe
             class="w-full h-full"
-            src="https://www.youtube.com/embed/giUG7wqDaCI?start=35" 
-            title="Bioinspired Gliding Snake Robot Demonstration" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            src="https://www.youtube.com/embed/giUG7wqDaCI?start=35"
+            title="Bioinspired Gliding Snake Robot Demonstration"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>
         </div>
+
+        <div class="space-y-3">
+          <h3 class="text-lg font-bold text-slate-900">
+            Project Presentation
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The presentation demonstrates the simulation
+            approach, robot motion, and physical experiments
+            performed by the team.
+          </p>
+
+          <a
+            href="https://www.youtube.com/watch?v=giUG7wqDaCI"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-sm font-semibold text-indigo-600 hover:text-indigo-800">
+            Watch Full Presentation on YouTube &rarr;
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. RESULTS -->
+    <section class="space-y-5">
+
+      <div class="border-b border-slate-200 pb-3">
+        <h2 class="text-2xl font-bold text-slate-900">
+          Results & Engineering Insights
+        </h2>
+
+        <p class="text-sm text-slate-500 mt-2">
+          Findings reported from the team's simulation
+          and experimental investigation.
+        </p>
       </div>
 
-      <!-- Simulation Architecture Pipeline -->
-      <div class="space-y-6">
-        <h2 class="text-xl font-bold text-slate-900">Simulation Architecture & Core Subsystems</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5">
-            <span class="font-bold text-indigo-600 uppercase tracking-wide text-[10px]">Subsystem 1</span>
-            <h3 class="font-bold text-slate-900 text-sm">Joint_Angles Block</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Generates serpenoid traveling wave commands: <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">&theta; = A&middot;sin(&Omega;n + &omega;t)</code>, transitioning from straight platform takeoff to airborne lateral undulation.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+          <h3 class="text-lg font-bold text-slate-900">
+            Launch Velocity & Glide Distance
+          </h3>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The team's reported experimental results at
+            a launch speed of 1.8 m/s showed an increase
+            in mean horizontal glide distance from
+            0.595 m to 0.647 m with undulation.
+          </p>
+
+          <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-5 text-center">
+            <p class="text-3xl font-extrabold text-indigo-700">
+              +8.7%
+            </p>
+            <p class="text-xs text-slate-600 mt-2">
+              Reported increase in mean glide distance
             </p>
           </div>
 
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5">
-            <span class="font-bold text-indigo-600 uppercase tracking-wide text-[10px]">Subsystem 2</span>
-            <h3 class="font-bold text-slate-900 text-sm">Servo_PD Controller</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Simulates internal motor position tracking with torque limits matching physical FEETECH FS90-FB micro servos (<code class="font-mono bg-slate-200 px-1 py-0.5 rounded">&tau; = 0.074 N&middot;m</code>).
-            </p>
-          </div>
+          <p class="text-xs text-slate-500">
+            Values retained from the original project
+            documentation; statistical analysis and
+            experimental conditions should be reviewed
+            against the original report.
+          </p>
+        </div>
 
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5">
-            <span class="font-bold text-indigo-600 uppercase tracking-wide text-[10px]">Subsystem 3</span>
-            <h3 class="font-bold text-slate-900 text-sm">Multi-Body Dynamics</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Solves non-linear Lagrangian mass matrix <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">M(q)</code> and Coriolis matrix <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">C(q, q&#775;)</code> coupled with dynamic aerodynamic force vectors.
-            </p>
-          </div>
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 space-y-4">
+          <h3 class="text-lg font-bold text-slate-900">
+            Undulation Amplitude
+          </h3>
 
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-1.5">
-            <span class="font-bold text-indigo-600 uppercase tracking-wide text-[10px]">Subsystem 4</span>
-            <h3 class="font-bold text-slate-900 text-sm">Forward Kinematics</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Maps inter-module joint coordinates into absolute global Cartesian space, referencing center-of-mass progression with symmetric bilateral waves.
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Simulation parameter studies investigated
+            the influence of undulation amplitude
+            on gliding performance.
+          </p>
+
+          <p class="text-sm text-slate-600 leading-relaxed">
+            The original project summary reported that
+            an amplitude of approximately 10 degrees
+            produced the greatest simulated glide
+            distance among the evaluated settings
+            under higher-speed conditions.
+          </p>
+
+          <div class="bg-slate-100 border border-slate-200 rounded-xl p-4">
+            <p class="text-sm font-semibold text-slate-800">
+              Engineering Interpretation
+            </p>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+              Increasing undulation does not necessarily
+              improve performance indefinitely.
+              Motion parameters must be evaluated
+              alongside their aerodynamic effects.
             </p>
           </div>
         </div>
+
       </div>
+    </section>
 
-      <!-- Key Insights & Experimental Outcomes -->
-      <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 sm:p-8 space-y-6">
-        <h2 class="text-xl font-bold text-slate-900">Simulation Predictions vs. Empirical Results</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-          <div class="space-y-2">
-            <h3 class="font-bold text-slate-800">1. Velocity Threshold Effect</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Simulations revealed that low airspeeds provide insufficient flight time for undulation to generate net aerodynamic lift benefits. However, at higher launch speeds (1.8 m/s), physical trials confirmed an <strong>8.7% increase in mean horizontal glide distance</strong> (from 0.595 m to 0.647 m, p = 0.010).
-            </p>
-          </div>
-          <div class="space-y-2">
-            <h3 class="font-bold text-slate-800">2. Optimal Amplitude Window</h3>
-            <p class="text-slate-600 leading-relaxed">
-              Parametric amplitude sweeps (0&deg; to 30&deg;) demonstrated that 10&deg; maximized glide distance at high velocities. Larger amplitudes caused induced drag to overtake lift benefits, underscoring the critical balance between joint deflection and aerodynamic efficiency.
-            </p>
-          </div>
-        </div>
+    <!-- 6. TAKEAWAYS -->
+    <section class="bg-slate-100 border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+
+      <h2 class="text-2xl font-bold text-slate-900">
+        Engineering Takeaways
+      </h2>
+
+      <p class="text-sm text-slate-600 leading-relaxed">
+        This project provided experience building a
+        dynamic simulation for a new robotic system
+        by applying established research models
+        and integrating multiple computational components.
+      </p>
+
+      <p class="text-sm text-slate-600 leading-relaxed">
+        It also reinforced the importance of interpreting
+        simulation predictions alongside experimental
+        observations, recognizing modeling assumptions,
+        and evaluating how changes in motion parameters
+        influence overall system performance.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white py-7">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p class="text-xs text-slate-500">
+        Jenny Choung · Carnegie Mellon University
+      </p>
+
+      <div class="flex gap-5 text-xs font-medium text-slate-600">
+        <a href="index.html" class="hover:text-indigo-600">
+          Portfolio
+        </a>
+        <a href="https://github.com/KyungUnGi"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hover:text-indigo-600">
+          GitHub
+        </a>
+        <a href="mailto:kchoung@andrew.cmu.edu"
+           class="hover:text-indigo-600">
+          Email
+        </a>
       </div>
-
-    </div>
-  </div>
-
-  <!-- Standard Clean Portfolio Footer -->
-  <footer class="max-w-6xl mx-auto px-6 py-8 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p>&copy; Jenny Choung &middot; Carnegie Mellon University</p>
-    <div class="flex items-center space-x-6">
-      <a href="https://github.com/KyungUnGi" target="_blank" class="hover:text-slate-600 transition">GitHub</a>
-      <a href="mailto:kchoung@andrew.cmu.edu" class="hover:text-slate-600 transition">Email</a>
     </div>
   </footer>
 
